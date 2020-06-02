@@ -1,6 +1,6 @@
 var APP_ID = '954767574955700'; //Facebook APP ID
 var LIMIT = 100; //Number of records to bring back at any time - MAX 100
-var BASEURL = 'https://iopkelvin.github.io/fb_connector/'; //base url of virtual directory
+var BASEURL = 'https://iopkelvin.github.io/page-insights-web-connect.html'; //base url of virtual directory
 
 /**
  * 1. login with Facebook
