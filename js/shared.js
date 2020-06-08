@@ -37,11 +37,11 @@ window.fbAsyncInit = function() {
 //Facbook Login on Single Page as Tableau does not allow popups
 function login() {
     var uri = window.location.href;
-    window.top.location = encodeURI("https://www.facebook.com/dialog/oauth?client_id=" + APP_ID + "&redirect_uri=" + uri + "&response_type=token&scope=manage_pages, read_insights");
+    window.top.location = encodeURI("https://www.facebook.com/dialog/oauth?client_id=" + APP_ID + "&redirect_uri=" + uri + "&response_type=token&scope=pages_manage_metadata, pages_read_engagement, pages_read_user_content, read_insights");
 }
 
 /**
- * 1.1. Actual logut - not implemented currently
+ * 1.1. Actual logout - not implemented currently
  */
 function logout() {
     FB.logout(function(response) {
