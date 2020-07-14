@@ -17,33 +17,33 @@ function ifexists(data, property) {
 function buildUrl(pageCount, page_response) {
     var page_ids = Object.getOwnPropertyNames(page_response);
     var next_page = '/' + page_response[page_ids[pageCount - 1]].id + '/insights/' +
-      'page_tab_views_login_top_unique,' +
-      'page_tab_views_login_top,' +
-      'page_tab_views_logout_top,' +
-      //Page CTA clicks
-      'page_total_actions,' +
-      'page_cta_clicks_logged_in_total,' +
-      'page_cta_clicks_logged_in_unique,' +
-      'page_cta_clicks_by_site_logged_in_unique,' +
-      'page_cta_clicks_by_age_gender_logged_in_unique,' +
-      'page_cta_clicks_logged_in_by_country_unique,' +
-      'page_cta_clicks_logged_in_by_city_unique,' +
-      'page_call_phone_clicks_logged_in_unique,' +
-      'page_call_phone_clicks_by_age_gender_logged_in_unique,' +
-      'page_call_phone_clicks_logged_in_by_country_unique,' +
-      'page_call_phone_clicks_logged_in_by_city_unique,' +
-      'page_call_phone_clicks_by_site_logged_in_unique,' +
-      'page_get_directions_clicks_logged_in_unique,' +
-      'page_get_directions_clicks_by_age_gender_logged_in_unique,' +
-      'page_get_directions_clicks_logged_in_by_country_unique,' +
-      'page_get_directions_clicks_logged_in_by_city_unique,' +
-      'page_get_directions_clicks_by_site_logged_in_unique,' +
-      'page_website_clicks_logged_in_unique,' +
-      'page_website_clicks_by_age_gender_logged_in_unique,' +
-      'page_website_clicks_logged_in_by_country_unique,' +
-      'page_website_clicks_logged_in_by_city_unique,' +
-      'page_website_clicks_by_site_logged_in_unique,' +
-
+        // Page Content
+        'page_tab_views_login_top_unique,' +
+        'page_tab_views_login_top,' +
+        'page_tab_views_logout_top,' +
+        // Page CTA clicks
+        'page_total_actions,' +
+        'page_cta_clicks_logged_in_total,' +
+        'page_cta_clicks_logged_in_unique,' +
+        'page_cta_clicks_by_site_logged_in_unique,' +
+        'page_cta_clicks_by_age_gender_logged_in_unique,' +
+        'page_cta_clicks_logged_in_by_country_unique,' +
+        'page_cta_clicks_logged_in_by_city_unique,' +
+        'page_call_phone_clicks_logged_in_unique,' +
+        'page_call_phone_clicks_by_age_gender_logged_in_unique,' +
+        'page_call_phone_clicks_logged_in_by_country_unique,' +
+        'page_call_phone_clicks_logged_in_by_city_unique,' +
+        'page_call_phone_clicks_by_site_logged_in_unique,' +
+        'page_get_directions_clicks_logged_in_unique,' +
+        'page_get_directions_clicks_by_age_gender_logged_in_unique,' +
+        'page_get_directions_clicks_logged_in_by_country_unique,' +
+        'page_get_directions_clicks_logged_in_by_city_unique,' +
+        'page_get_directions_clicks_by_site_logged_in_unique,' +
+        'page_website_clicks_logged_in_unique,' +
+        'page_website_clicks_by_age_gender_logged_in_unique,' +
+        'page_website_clicks_logged_in_by_country_unique,' +
+        'page_website_clicks_logged_in_by_city_unique,' +
+        'page_website_clicks_by_site_logged_in_unique,' +
 
         'page_content_activity,' +
         'page_impressions,' +
@@ -54,9 +54,12 @@ function buildUrl(pageCount, page_response) {
         'page_impressions_organic_unique,' +
         'page_impressions_viral,' +
         'page_impressions_viral_unique,' +
+        //Page Engagement
         'page_engaged_users,' +
+        'page_post_engagements,' +
         'page_consumptions,' +
         'page_consumptions_unique,' +
+        
         'page_places_checkin_total,' +
         'page_places_checkin_total_unique,' +
         'page_places_checkin_mobile,' +
@@ -115,182 +118,136 @@ myConnector.getSchema = function(schemaCallback) {
         id: "page_username",
         alias: "Page Username",
         dataType: tableau.dataTypeEnum.string
-    },
-        {
+    }, {
             id: "date",
             alias: "Date",
             description: "The Date as reported by Facebook",
             dataType: tableau.dataTypeEnum.date
         },
+// Page Content
     {
         id: "page_tab_views_login_top_unique",
         alias: "page_tab_views_login_top_unique",
         description: "The number of users logged in to Facebook who saw tabs on your Page",
         dataType: tableau.dataTypeEnum.int
-    },
-    {
+    }, {
         id: "page_tab_views_login_top",
         alias: "page_tab_views_login_top",
         description: "The number of times users logged in to Facebook saw tabs on your Page",
         dataType: tableau.dataTypeEnum.int
-    },
-    {
+    }, {
         id: "page_tab_views_logout_top",
         alias: "page_tab_views_logout_top",
         description: "The number of times users not logged in to Facebook saw tabs on your Page",
         dataType: tableau.dataTypeEnum.int
     },
-
-    'page_total_actions,' +
-    'page_cta_clicks_logged_in_total,' +
-    'page_cta_clicks_logged_in_unique,' +
-    'page_cta_clicks_by_site_logged_in_unique,' +
-    'page_cta_clicks_by_age_gender_logged_in_unique,' +
-    'page_cta_clicks_logged_in_by_country_unique,' +
-    'page_cta_clicks_logged_in_by_city_unique,' +
-    'page_call_phone_clicks_logged_in_unique,' +
-    'page_call_phone_clicks_by_age_gender_logged_in_unique,' +
-    'page_call_phone_clicks_logged_in_by_country_unique,' +
-    'page_call_phone_clicks_logged_in_by_city_unique,' +
-    'page_call_phone_clicks_by_site_logged_in_unique,' +
-    'page_get_directions_clicks_logged_in_unique,' +
-    'page_get_directions_clicks_by_age_gender_logged_in_unique,' +
-    'page_get_directions_clicks_logged_in_by_country_unique,' +
-    'page_get_directions_clicks_logged_in_by_city_unique,' +
-    'page_get_directions_clicks_by_site_logged_in_unique,' +
-    'page_website_clicks_logged_in_unique,' +
-    'page_website_clicks_by_age_gender_logged_in_unique,' +
-    'page_website_clicks_logged_in_by_country_unique,' +
-    'page_website_clicks_logged_in_by_city_unique,' +
-    'page_website_clicks_by_site_logged_in_unique,' +
 // CTA Clicks
     {
         id: "page_total_actions",
         alias: "page_total_actions",
         description: "The number of clicks on your Page's contact info and call-to-action button",
         dataType: tableau.dataTypeEnum.int
-    },
-    {
+    }, {
         id: "page_cta_clicks_logged_in_total",
         alias: "page_cta_clicks_logged_in_total",
         description: "Total number of clicks on the Page CTA button by people who are logged in to Facebook.",
         dataType: tableau.dataTypeEnum.int
-    },
-    {
+    }, {
         id: "page_cta_clicks_logged_in_unique",
         alias: "page_cta_clicks_logged_in_unique",
         description: "Unique number of clicks on the Page CTA button by people who are logged in to Facebook",
         dataType: tableau.dataTypeEnum.int
-    },
-    {
+    }, {
         id: "page_cta_clicks_by_site_logged_in_unique",
         alias: "page_cta_clicks_by_site_logged_in_unique",
         description: "Number of people who are logged in to Facebook and clicked on the CTA button, broken down by www, mobile, api or other",
         dataType: tableau.dataTypeEnum.int
-    },
-    {
+    }, {
         id: "page_cta_clicks_by_age_gender_logged_in_unique",
         alias: "page_cta_clicks_by_age_gender_logged_in_unique",
         description: "Number of people who are logged in to Facebook and clicked the Page CTA button, broken down by age and gender group.",
         dataType: tableau.dataTypeEnum.int
-    },
-    {
+    }, {
         id: "page_cta_clicks_logged_in_by_country_unique",
         alias: "page_cta_clicks_logged_in_by_country_unique",
         description: "Number of people who are logged in to Facebook and clicked the Page CTA button, broken down by country",
         dataType: tableau.dataTypeEnum.int
-    },
-    {
+    }, {
         id: "page_cta_clicks_logged_in_by_city_unique",
         alias: "page_cta_clicks_logged_in_by_city_unique",
         description: "Number of people who are logged in to Facebook and clicked the Page CTA button, broken down by city",
         dataType: tableau.dataTypeEnum.int
-    },
-    {
+    }, {
         id: "page_call_phone_clicks_logged_in_unique",
         alias: "page_call_phone_clicks_logged_in_unique",
         description: "Number of people who logged in to Facebook and clicked the Call Now button",
         dataType: tableau.dataTypeEnum.int
-    },
-    {
+    }, {
         id: "page_call_phone_clicks_by_age_gender_logged_in_unique",
         alias: "page_call_phone_clicks_by_age_gender_logged_in_unique",
         description: "Number of people who logged in to Facebook and clicked the Call Now button, broken down by age and gender group",
         dataType: tableau.dataTypeEnum.int
-    },
-    {
+    }, {
         id: "page_call_phone_clicks_logged_in_by_country_unique",
         alias: "page_call_phone_clicks_logged_in_by_country_unique",
         description: "Number of people who logged in to Facebook and clicked the Call Now button, broken down by countries",
         dataType: tableau.dataTypeEnum.int
-    },
-    {
+    }, {
         id: "page_call_phone_clicks_logged_in_by_city_unique",
         alias: "page_call_phone_clicks_logged_in_by_city_unique",
         description: "Number of people who logged in to Facebook and clicked the Call Now button, broken down by city",
         dataType: tableau.dataTypeEnum.int
-    },
-    {
+    }, {
         id: "page_call_phone_clicks_by_site_logged_in_unique",
         alias: "page_call_phone_clicks_by_site_logged_in_unique",
         description: "The number of people who clicked your Page's phone number or Call Now button while they were logged into Facebook, broken down by the type of device they used",
         dataType: tableau.dataTypeEnum.int
-    },
-    {
+    }, {
         id: "page_get_directions_clicks_logged_in_unique",
         alias: "page_get_directions_clicks_logged_in_unique",
         description: "Number of people who logged in to Facebook and clicked the Get Directions button",
         dataType: tableau.dataTypeEnum.int
-    },
-    {
+    }, {
         id: "page_get_directions_clicks_by_age_gender_logged_in_unique",
         alias: "page_get_directions_clicks_by_age_gender_logged_in_unique",
         description: "Number of people who logged in to Facebook and clicked the Get Directions button, broken down by age and gender group",
         dataType: tableau.dataTypeEnum.int
-    },
-    {
+    }, {
         id: "page_get_directions_clicks_logged_in_by_country_unique",
         alias: "page_get_directions_clicks_logged_in_by_country_unique",
         description: "Number of people who logged in to Facebook and clicked the Get Directions button, broken down by country",
         dataType: tableau.dataTypeEnum.int
-    },
-    {
+    }, {
         id: "page_get_directions_clicks_logged_in_by_city_unique",
         alias: "page_get_directions_clicks_logged_in_by_city_unique",
         description: "Number of people who logged in to Facebook and clicked the Get Directions button, broken down by city",
         dataType: tableau.dataTypeEnum.int
-    },
-    {
+    }, {
         id: "page_get_directions_clicks_by_site_logged_in_unique",
         alias: "page_get_directions_clicks_by_site_logged_in_unique",
         description: "Number of people who logged in to Facebook and clicked the Get Directions button, broken down by www, mobile, api or other",
         dataType: tableau.dataTypeEnum.int
-    },
-    {
+    }, {
         id: "page_website_clicks_logged_in_unique",
         alias: "page_website_clicks_logged_in_unique",
         description: "Number of people who logged in to Facebook and clicked the goto website CTA button",
         dataType: tableau.dataTypeEnum.int
-    },
-    {
+    }, {
         id: "page_website_clicks_by_age_gender_logged_in_unique",
         alias: "page_website_clicks_by_age_gender_logged_in_unique",
         description: "Number of people who logged in to Facebook and clicked the goto website CTA button, broken down by age and gender group",
         dataType: tableau.dataTypeEnum.int
-    },
-    {
+    }, {
         id: "page_website_clicks_logged_in_by_country_unique",
         alias: "page_website_clicks_logged_in_by_country_unique",
         description: "Number of people who logged in to Facebook and clicked the goto website CTA button, broken down by country",
         dataType: tableau.dataTypeEnum.int
-    },
-    {
+    }, {
         id: "page_website_clicks_logged_in_by_city_unique",
         alias: "page_website_clicks_logged_in_by_city_unique",
         description: "Number of people who logged in to Facebook and clicked the goto website CTA button, broken down by city",
         dataType: tableau.dataTypeEnum.int
-    },
-    {
+    }, {
         id: "page_website_clicks_by_site_logged_in_unique",
         alias: "page_website_clicks_by_site_logged_in_unique",
         description: "Number of people who logged in to Facebook and clicked the Page CTA button, broken down by www, mobile, api and other",
@@ -344,10 +301,16 @@ myConnector.getSchema = function(schemaCallback) {
             description: "The number of people who saw your Page or one of its posts from a story published by a friend. These stories include liking your Page, posting to your Page's Wall, liking, commenting on or sharing one of your Page posts, answering a Question you posted, RSVPing to one of your events, mentioning your Page, phototagging your Page or checking in at your Place",
             dataType: tableau.dataTypeEnum.int
         },
+    //Page Engagemnt
         {
             id: "page_engaged_users",
             alias: "Page Engaged Users",
             description: "The number of people who engaged with your Page. Engagement includes any click",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_post_engagements",
+            alias: "page_post_engagements",
+            description: "The number of times people have engaged with your posts through reactions, comments, shares and more",
             dataType: tableau.dataTypeEnum.int
         }, {
             id: "page_consumptions",
