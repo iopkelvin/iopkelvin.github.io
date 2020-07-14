@@ -17,6 +17,9 @@ function ifexists(data, property) {
 function buildUrl(pageCount, page_response) {
     var page_ids = Object.getOwnPropertyNames(page_response);
     var next_page = '/' + page_response[page_ids[pageCount - 1]].id + '/insights/' +
+      'page_tab_views_login_top_unique,' +
+      'page_tab_views_login_top,' +
+      'page_tab_views_logout_top,' +
         'page_content_activity,' +
         'page_impressions,' +
         'page_impressions_unique,' +
@@ -94,6 +97,26 @@ myConnector.getSchema = function(schemaCallback) {
             description: "The Date as reported by Facebook",
             dataType: tableau.dataTypeEnum.date
         },
+
+        {
+            id: "page_tab_views_login_top_unique",
+            alias: "page_tab_views_login_top_unique",
+            description: "The number of users logged in to Facebook who saw tabs on your Page",
+            dataType: tableau.dataTypeEnum.int
+        },
+        {
+            id: "page_tab_views_login_top",
+            alias: "page_tab_views_login_top",
+            description: "The number of times users logged in to Facebook saw tabs on your Page",
+            dataType: tableau.dataTypeEnum.int
+        },
+        {
+            id: "page_tab_views_logout_top",
+            alias: "page_tab_views_logout_top",
+            description: "The number of times users not logged in to Facebook saw tabs on your Page",
+            dataType: tableau.dataTypeEnum.int
+        },
+
         {
             id: "page_content_activity",
             alias: "Page Content Activity",
@@ -520,4 +543,3 @@ function getFbFeed(table, doneCallback, next_page, pagesCount, pagesInfo, curren
 }
 
 tableau.registerConnector(myConnector);
-
