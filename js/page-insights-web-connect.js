@@ -111,11 +111,11 @@ function buildUrl(pageCount, page_response) {
         'post_clicks_unique,' +
         'post_clicks_by_type,' +
         'post_clicks_by_type_unique,' +
-// Negative Feedback Types
-        'hide_clicks,' +
-        'hide_all_clicks,' +
-        'report_spam_clicks,' +
-        'unlike_page_clicks,' +
+// // Negative Feedback Types
+//         'hide_clicks,' +
+//         'hide_all_clicks,' +
+//         'report_spam_clicks,' +
+//         'unlike_page_clicks,' +
 
 // Page Reactions
         'page_actions_post_reactions_like_total,' +
@@ -636,36 +636,36 @@ myConnector.getSchema = function(schemaCallback) {
             description: "The number of people who clicked anywhere in your post without generating a story, by consumption type",
             dataType: tableau.dataTypeEnum.int
         },
-// Negative Feedback Types
+// // Negative Feedback Types
+//         {
+//             id: "hide_clicks",
+//             alias: "hide_clicks",
+//             description: "Hide this story",
+//             dataType: tableau.dataTypeEnum.int
+//         }, {
+//             id: "hide_all_clicks",
+//             alias: "hide_all_clicks",
+//             description: "Hide all posts from this page",
+//             dataType: tableau.dataTypeEnum.int
+//         }, {
+//             id: "report_spam_clicks",
+//             alias: "report_spam_clicks",
+//             description: "Report an object as a spam",
+//             dataType: tableau.dataTypeEnum.int
+//         }, {
+//             id: "unlike_page_clicks",
+//             alias: "unlike_page_clicks",
+//             description: "Unlike a page",
+//             dataType: tableau.dataTypeEnum.int
+//         },
+
+
         {
-            id: "hide_clicks",
-            alias: "hide_clicks",
-            description: "Hide this story",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "hide_all_clicks",
-            alias: "hide_all_clicks",
-            description: "Hide all posts from this page",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "report_spam_clicks",
-            alias: "report_spam_clicks",
-            description: "Report an object as a spam",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "unlike_page_clicks",
-            alias: "unlike_page_clicks",
-            description: "Unlike a page",
+            id: "page_content_activity",
+            alias: "Page Content Activity",
+            description: "The number of stories created about your Page (Stories)",
             dataType: tableau.dataTypeEnum.int
         },
-
-
-            {
-                id: "page_content_activity",
-                alias: "Page Content Activity",
-                description: "The number of stories created about your Page (Stories)",
-                dataType: tableau.dataTypeEnum.int
-            },
 
 // Page Reactions
         {
