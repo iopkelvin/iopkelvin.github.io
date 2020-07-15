@@ -17,6 +17,8 @@ function ifexists(data, property) {
 function buildUrl(pageCount, page_response) {
     var page_ids = Object.getOwnPropertyNames(page_response);
     var next_page = '/' + page_response[page_ids[pageCount - 1]].id + '/insights/' +
+// Currently 145 metrics
+
 // Page Content
 // These are types (17 types per metric)
         // 'page_tab_views_login_top_unique,' +
