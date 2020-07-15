@@ -18,9 +18,10 @@ function buildUrl(pageCount, page_response) {
     var page_ids = Object.getOwnPropertyNames(page_response);
     var next_page = '/' + page_response[page_ids[pageCount - 1]].id + '/insights/' +
 // Page Content
-        'page_tab_views_login_top_unique,' +
-        'page_tab_views_login_top,' +
-        'page_tab_views_logout_top,' +
+// These are types (17 types per metric)
+        // 'page_tab_views_login_top_unique,' +
+        // 'page_tab_views_login_top,' +
+        // 'page_tab_views_logout_top,' +
 // Page CTA clicks
         'page_total_actions,' +
         'page_cta_clicks_logged_in_total,' +
@@ -60,15 +61,15 @@ function buildUrl(pageCount, page_response) {
         'page_places_checkins_by_country,' +
         'page_negative_feedback,' +
         'page_negative_feedback_unique,' +
-        'page_negative_feedback_by_type,' +
-        'page_negative_feedback_by_type_unique,' +
-        'page_positive_feedback_by_type,' +
-        'page_positive_feedback_by_type_unique,' +
+        // 4 Types per Negative and 7 types per Positive
+        // 'page_negative_feedback_by_type,' +
+        // 'page_negative_feedback_by_type_unique,' +
+        // 'page_positive_feedback_by_type,' +
+        // 'page_positive_feedback_by_type_unique,' +
         'page_fans_online,' +
         'page_fans_online_per_day,' +
         'page_fan_adds_by_paid_non_paid_unique,' +
 // Page Impressions
-        'page_content_activity,' +
         'page_impressions,' +
         'page_impressions_unique,' +
         'page_impressions_paid,' +
@@ -111,12 +112,6 @@ function buildUrl(pageCount, page_response) {
         'post_clicks_unique,' +
         'post_clicks_by_type,' +
         'post_clicks_by_type_unique,' +
-// // Negative Feedback Types
-//         'hide_clicks,' +
-//         'hide_all_clicks,' +
-//         'report_spam_clicks,' +
-//         'unlike_page_clicks,' +
-
 // Page Reactions
         'page_actions_post_reactions_like_total,' +
         'page_actions_post_reactions_love_total,' +
@@ -125,7 +120,6 @@ function buildUrl(pageCount, page_response) {
         'page_actions_post_reactions_sorry_total,' +
         'page_actions_post_reactions_anger_total,' +
         'page_actions_post_reactions_total,' +
-
 // Page User Demographics
         'page_fans,' +
         'page_fans_locale,' +
@@ -134,23 +128,12 @@ function buildUrl(pageCount, page_response) {
         'page_fans_gender_age,' +
         'page_fan_adds,' +
         'page_fan_adds_unique,' +
+        // There are 6 types for each
+        // page_fans_by_like_source
+        // page_fans_by_like_source_unique
         'page_fan_removes,' +
         'page_fan_removes_unique,' +
         'page_fans_by_unlike_source_unique,' +
-
-// Page Views
-        'page_views_total,' +
-        'page_views_logout,' +
-        'page_views_logged_in_total,' +
-        'page_views_logged_in_unique,' +
-        'page_views_external_referrals,' +
-        'page_views_by_profile_tab_total,' +
-        'page_views_by_profile_tab_logged_in_unique,' +
-        'page_views_by_internal_referer_logged_in_unique,' +
-        'page_views_by_site_logged_in_unique,' +
-        'page_views_by_age_gender_logged_in_unique,' +
-        'page_views_by_referers_logged_in_unique,' +
-
 // Page Video Views
         'page_video_views,' +
         'page_video_views_paid,' +
@@ -167,7 +150,49 @@ function buildUrl(pageCount, page_response) {
         'page_video_complete_views_30s_click_to_play,' +
         'page_video_complete_views_30s_unique,' +
         'page_video_complete_views_30s_repeat_views,' +
+        'post_video_complete_views_30s_autoplayed,' +
+        'post_video_complete_views_30s_clicked_to_play,' +
+        'post_video_complete_views_30s_organic,' +
+        'post_video_complete_views_30s_paid,' +
+        'post_video_complete_views_30s_unique,' +
+        'page_video_views_10s,' +
+        'page_video_views_10s_paid,' +
+        'page_video_views_10s_organic,' +
+        'page_video_views_10s_autoplayed,' +
+        'page_video_views_10s_click_to_play,' +
+        'page_video_views_10s_unique,' +
+        'page_video_views_10s_repeat,' +
+        'page_video_view_time,' +
+// Page Views
+        'page_views_total,' +
+        'page_views_logout,' +
+        'page_views_logged_in_total,' +
+        'page_views_logged_in_unique,' +
+        'page_views_external_referrals,' +
+        'page_views_by_profile_tab_total,' +
+        'page_views_by_profile_tab_logged_in_unique,' +
+        'page_views_by_internal_referer_logged_in_unique,' +
+        'page_views_by_site_logged_in_unique,' +
+        'page_views_by_age_gender_logged_in_unique,' +
+        'page_views_by_referers_logged_in_unique,' +
 
+// Page Video Posts. 32 metrics
+
+// Stories
+        // 9 types for both
+        //'page_content_activity_by_action_type_unique,' +
+        'page_content_activity_by_age_gender_unique,' +
+        'page_content_activity_by_city_unique,' +
+        'page_content_activity_by_country_unique,' +
+        'page_content_activity_by_locale_unique,' +
+        'page_content_activity,' +
+        // 'page_content_activity_by_action_type,' +
+        'post_activity,' +
+        'post_activity_unique,' +
+        'post_activity_by_action_type,' +
+        'post_activity_by_action_type_unique,' +
+
+// Video Ad Breaks. 6 metrics
         '?since=' + SINCE_DAY;
     return next_page;
 }
@@ -187,26 +212,28 @@ myConnector.getSchema = function(schemaCallback) {
             alias: "Date",
             description: "The Date as reported by Facebook",
             dataType: tableau.dataTypeEnum.date
-        },
+      },
+
 // Page Content
-        {
-            id: "page_tab_views_login_top_unique",
-            alias: "page_tab_views_login_top_unique",
-            description: "The number of users logged in to Facebook who saw tabs on your Page",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_tab_views_login_top",
-            alias: "page_tab_views_login_top",
-            description: "The number of times users logged in to Facebook saw tabs on your Page",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_tab_views_logout_top",
-            alias: "page_tab_views_logout_top",
-            description: "The number of times users not logged in to Facebook saw tabs on your Page",
-            dataType: tableau.dataTypeEnum.int
-        },
+        // {
+        //     id: "page_tab_views_login_top_unique",
+        //     alias: "page_tab_views_login_top_unique",
+        //     description: "The number of users logged in to Facebook who saw tabs on your Page",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "page_tab_views_login_top",
+        //     alias: "page_tab_views_login_top",
+        //     description: "The number of times users logged in to Facebook saw tabs on your Page",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "page_tab_views_logout_top",
+        //     alias: "page_tab_views_logout_top",
+        //     description: "The number of times users not logged in to Facebook saw tabs on your Page",
+        //     dataType: tableau.dataTypeEnum.int
+        // },
+
 // CTA Clicks
-        {
+           {
             id: "page_total_actions",
             alias: "page_total_actions",
             description: "The number of clicks on your Page's contact info and call-to-action button",
@@ -319,7 +346,7 @@ myConnector.getSchema = function(schemaCallback) {
         },
 
 //Page Engagemnt
-        {
+           {
             id: "page_engaged_users",
             alias: "Page Engaged Users",
             description: "The number of people who engaged with your Page. Engagement includes any click",
@@ -394,26 +421,26 @@ myConnector.getSchema = function(schemaCallback) {
             alias: "Page Negative Feedback Unique",
             description: "The number of people who took a negative action (e.g., un-liked or hid a post)",
             dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_negative_feedback_by_type",
-            alias: "page_negative_feedback_by_type",
-            description: "The number of times people took a negative action broken down by type",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_negative_feedback_by_type_unique",
-            alias: "page_negative_feedback_by_type_unique",
-            description: "The number of people who took a negative action broken down by type",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_positive_feedback_by_type",
-            alias: "page_positive_feedback_by_type",
-            description: "The number of times people took a positive action broken down by type",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_positive_feedback_by_type_unique",
-            alias: "page_positive_feedback_by_type_unique",
-            description: "The number of people who took a positive action broken down by type",
-            dataType: tableau.dataTypeEnum.int
+        //}, {
+        //     id: "page_negative_feedback_by_type",
+        //     alias: "page_negative_feedback_by_type",
+        //     description: "The number of times people took a negative action broken down by type",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "page_negative_feedback_by_type_unique",
+        //     alias: "page_negative_feedback_by_type_unique",
+        //     description: "The number of people who took a negative action broken down by type",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "page_positive_feedback_by_type",
+        //     alias: "page_positive_feedback_by_type",
+        //     description: "The number of times people took a positive action broken down by type",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "page_positive_feedback_by_type_unique",
+        //     alias: "page_positive_feedback_by_type_unique",
+        //     description: "The number of people who took a positive action broken down by type",
+        //     dataType: tableau.dataTypeEnum.int
         }, {
             id: "page_fans_online",
             alias: "page_fans_online",
@@ -431,7 +458,7 @@ myConnector.getSchema = function(schemaCallback) {
             dataType: tableau.dataTypeEnum.int
         },
 // Page Impressions
-        {
+           {
             id: "page_impressions",
             alias: "Page Impressions",
             description: "The total number of impressions seen of any content associated with your Page",
@@ -523,7 +550,7 @@ myConnector.getSchema = function(schemaCallback) {
             dataType: tableau.dataTypeEnum.int
         },
 // Page Posts
-        {
+           {
             id: "page_posts_impressions",
             alias: "Page Posts Impressions",
             description: "The number of impressions that came from all of your posts",
@@ -585,7 +612,7 @@ myConnector.getSchema = function(schemaCallback) {
             dataType: tableau.dataTypeEnum.int
         },
 // Page Post Engagement
-        {
+           {
             id: "post_engaged_users",
             alias: "post_engaged_users",
             description: "The number of people who clicked anywhere in your posts",
@@ -636,38 +663,9 @@ myConnector.getSchema = function(schemaCallback) {
             description: "The number of people who clicked anywhere in your post without generating a story, by consumption type",
             dataType: tableau.dataTypeEnum.int
         },
-// // Negative Feedback Types
-//         {
-//             id: "hide_clicks",
-//             alias: "hide_clicks",
-//             description: "Hide this story",
-//             dataType: tableau.dataTypeEnum.int
-//         }, {
-//             id: "hide_all_clicks",
-//             alias: "hide_all_clicks",
-//             description: "Hide all posts from this page",
-//             dataType: tableau.dataTypeEnum.int
-//         }, {
-//             id: "report_spam_clicks",
-//             alias: "report_spam_clicks",
-//             description: "Report an object as a spam",
-//             dataType: tableau.dataTypeEnum.int
-//         }, {
-//             id: "unlike_page_clicks",
-//             alias: "unlike_page_clicks",
-//             description: "Unlike a page",
-//             dataType: tableau.dataTypeEnum.int
-//         },
 
 
-        {
-            id: "page_content_activity",
-            alias: "Page Content Activity",
-            description: "The number of stories created about your Page (Stories)",
-            dataType: tableau.dataTypeEnum.int
-        },
 
-// Page Reactions
         {
             id: "page_actions_reactions_like_total",
             alias: "Page Actions Post Reactions Like Total",
@@ -758,66 +756,8 @@ myConnector.getSchema = function(schemaCallback) {
             dataType: tableau.dataTypeEnum.int
         },
 
-// Page Views
-        {
-            id: "page_views_total",
-            alias: "Page Views Total",
-            description: "The number of times a Page's profile has been viewed by logged in and logged out people",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_views_logout",
-            alias: "Page Views Logout",
-            description: "The number of times a Page's profile has been viewed by people not logged into Facebook",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_views_logged_in_total",
-            alias: "Page Views Logged In Total",
-            description: "The number of times a Page’s profile has been viewed by people logged into Facebook",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_views_logged_in_unique",
-            alias: "Page Views Logged In Unique",
-            description: "The number of people logged into Facebook who have viewed the Page profile",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_views_external_referrals",
-            alias: "page_views_external_referrals",
-            description: "Top referrering external domains sending traffic to your Page.",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_views_by_profile_tab_total",
-            alias: "page_views_by_profile_tab_total",
-            description: "The number of people who have viewed each Page profile tab.",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_views_by_profile_tab_logged_in_unique",
-            alias: "page_views_by_profile_tab_logged_in_unique",
-            description: "The number of people logged in to Facebook who have viewed your Page's profile, broken down by each tab.",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_views_by_internal_referer_logged_in_unique",
-            alias: "page_views_by_internal_referer_logged_in_unique",
-            description: "The number of people logged in to Facebook who have viewed your Page, broken down by the internal referer within Facebook.",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_views_by_site_logged_in_unique",
-            alias: "page_views_by_site_logged_in_unique",
-            description: "The number of people logged in to Facebook who have viewed your Page profile, broken down by the type of device.",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_views_by_age_gender_logged_in_unique",
-            alias: "page_views_by_age_gender_logged_in_unique",
-            description: "The number of people logged in to Facebook who have viewed your Page profile, broken down by gender group.",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_views_by_referers_logged_in_unique",
-            alias: "page_views_by_referers_logged_in_unique",
-            description: "Logged-in page visit counts (unique users) by referral source.",
-            dataType: tableau.dataTypeEnum.int
-        },
-
 // Page Video Views
-        {
+           {
             id: "page_video_views",
             alias: "Page Video Views",
             description: "Total number of times page's videos have been viewed for more than 3 seconds",
@@ -892,7 +832,180 @@ myConnector.getSchema = function(schemaCallback) {
             alias: "Page Video Complete Views 30s Repeat Views",
             description: "Total number of times that people replay a page's videos to the end, or for more than 30 seconds",
             dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "post_video_complete_views_30s_autoplayed",
+            alias: "post_video_complete_views_30s_autoplayed",
+            description: "The number of times your videos automatically played for at least 30 seconds, or for nearly their total length if they're shorter than 30 seconds. During a single instance of a video playing, we'll exclude any time spent replaying the video. Returns 0 for reshared videos.",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "post_video_complete_views_30s_clicked_to_play",
+            alias: "post_video_complete_views_30s_clicked_to_play",
+            description: "The number of times your videos played for at least 30 seconds, or for nearly their total length if they're shorter than 30 seconds, after people clicked play. During a single instance of a video playing, we'll exclude any time spent replaying the video. Returns 0 for reshared videos.",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "post_video_complete_views_30s_organic",
+            alias: "post_video_complete_views_30s_organic",
+            description: "The number of times your videos played for at least 30 seconds, or for nearly their total length if they're shorter than 30 seconds, by organic reach. During a single instance of a video playing, we'll exclude any time spent replaying the video. Returns 0 for reshared videos.",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "post_video_complete_views_30s_paid",
+            alias: "post_video_complete_views_30s_paid",
+            description: "The number of times your promoted videos played for at least 30 seconds, or for nearly their total length if they're shorter than 30 seconds. For each impression of a video, we'll count video views separately and exclude any time spent replaying the video. Returns 0 for reshared videos.",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "post_video_complete_views_30s_unique",
+            alias: "post_video_complete_views_30s_unique",
+            description: "The number of people who viewed your videos for at least 30 seconds, or for nearly their total length if they're shorter than 30 seconds. During a single instance of a video playing, we'll exclude any time spent replaying the video.",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_video_views_10s",
+            alias: "page_video_views_10s",
+            description: "The number of times your Page's videos played for at least 10 seconds, or for nearly their total length if they're shorter than 10 seconds. During a single instance of a video playing, we'll exclude any time spent replaying the video.",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_video_views_10s_paid",
+            alias: "page_video_views_10s_paid",
+            description: "The number of times your Page's promoted videos played for at least 10 seconds, or for nearly their total length if they're shorter than 10 seconds. For each impression of a video, we'll count video views separately and exclude any time spent replaying the video.",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_video_views_10s_organic",
+            alias: "page_video_views_10s_organic",
+            description: "The number of times your Page's videos played for at least 10 seconds, or for nearly their total length if they're shorter than 10 seconds, by organic reach. During a single instance of a video playing, we'll exclude any time spent replaying the video.",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_video_views_10s_autoplayed",
+            alias: "page_video_views_10s_autoplayed",
+            description: "The number of times your Page's videos automatically played for at least 10 seconds, or for nearly their total length if they're shorter than 10 seconds. During a single instance of a video playing, we'll exclude any time spent replaying the video.",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_video_views_10s_click_to_play",
+            alias: "page_video_views_10s_click_to_play",
+            description: "The number of times your Page's videos played for at least 10 seconds, or for nearly their total length if they're shorter than 10 seconds, after people clicked play. During a single instance of a video playing, we'll exclude any time spent replaying the video.",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_video_views_10s_unique",
+            alias: "page_video_views_10s_unique",
+            description: "The number of people who viewed your Page's videos for at least 10 seconds, or for nearly their total length if they're shorter than 10 seconds. During a single instance of a video playing, we'll exclude any time spent replaying the video.",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_video_views_10s_repeat",
+            alias: "page_video_views_10s_repeat",
+            description: "The number of times your Page's videos replayed for at least 10 seconds, or for nearly their total length if they're shorter than 10 seconds.",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_video_view_time",
+            alias: "page_video_view_time",
+            description: "The total time, in milliseconds, people viewed your Page's video.",
+            dataType: tableau.dataTypeEnum.int
+        },
+// Page Views
+           {
+            id: "page_views_total",
+            alias: "Page Views Total",
+            description: "The number of times a Page's profile has been viewed by logged in and logged out people",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_views_logout",
+            alias: "Page Views Logout",
+            description: "The number of times a Page's profile has been viewed by people not logged into Facebook",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_views_logged_in_total",
+            alias: "Page Views Logged In Total",
+            description: "The number of times a Page’s profile has been viewed by people logged into Facebook",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_views_logged_in_unique",
+            alias: "Page Views Logged In Unique",
+            description: "The number of people logged into Facebook who have viewed the Page profile",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_views_external_referrals",
+            alias: "page_views_external_referrals",
+            description: "Top referrering external domains sending traffic to your Page.",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_views_by_profile_tab_total",
+            alias: "page_views_by_profile_tab_total",
+            description: "The number of people who have viewed each Page profile tab.",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_views_by_profile_tab_logged_in_unique",
+            alias: "page_views_by_profile_tab_logged_in_unique",
+            description: "The number of people logged in to Facebook who have viewed your Page's profile, broken down by each tab.",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_views_by_internal_referer_logged_in_unique",
+            alias: "page_views_by_internal_referer_logged_in_unique",
+            description: "The number of people logged in to Facebook who have viewed your Page, broken down by the internal referer within Facebook.",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_views_by_site_logged_in_unique",
+            alias: "page_views_by_site_logged_in_unique",
+            description: "The number of people logged in to Facebook who have viewed your Page profile, broken down by the type of device.",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_views_by_age_gender_logged_in_unique",
+            alias: "page_views_by_age_gender_logged_in_unique",
+            description: "The number of people logged in to Facebook who have viewed your Page profile, broken down by gender group.",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_views_by_referers_logged_in_unique",
+            alias: "page_views_by_referers_logged_in_unique",
+            description: "Logged-in page visit counts (unique users) by referral source.",
+            dataType: tableau.dataTypeEnum.int
+        },
+
+// Stories
+           {
+            id: "page_content_activity_by_age_gender_unique",
+            alias: "page_content_activity_by_age_gender_unique",
+            description: "The number of People Talking About the Page by user age and gender. This number is an estimate.",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_content_activity_by_city_unique",
+            alias: "page_content_activity_by_city_unique",
+            description: "The number of People Talking About the Page by user city.",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_content_activity_by_country_unique",
+            alias: "page_content_activity_by_country_unique",
+            description: "The number of people, aggregated per country, that are talking about your Page. Only the 45 countries with the most people talking about your page are included.",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_content_activity_by_locale_unique",
+            alias: "page_content_activity_by_locale_unique",
+            description: "The number of People Talking About the Page by user language.",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_content_activity",
+            alias: "page_content_activity",
+            description: "The number of stories created about your Page (Stories).",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "post_activity",
+            alias: "post_activity",
+            description: "The number of stories generated about your Page post ('Stories').",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "post_activity_unique",
+            alias: "post_activity_unique",
+            description: "The number of people who created a story about your Page post ('People Talking About This' / PTAT).",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "post_activity_by_action_type",
+            alias: "post_activity_by_action_type",
+            description: "The number of stories created about your Page post, by action type.",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "post_activity_by_action_type_unique",
+            alias: "post_activity_by_action_type_unique",
+            description: "The number of people who created a story about your Page post, by action type.",
+            dataType: tableau.dataTypeEnum.int
         }
+
+// Video Ad Breaks
+
     ];
     var tableSchema = {
         id: "facebook_page_insights",
