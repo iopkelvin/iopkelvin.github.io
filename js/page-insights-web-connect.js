@@ -17,11 +17,11 @@ function ifexists(data, property) {
 function buildUrl(pageCount, page_response) {
     var page_ids = Object.getOwnPropertyNames(page_response);
     var next_page = '/' + page_response[page_ids[pageCount - 1]].id + '/insights/' +
-        // Page Content
+// Page Content
         'page_tab_views_login_top_unique,' +
         'page_tab_views_login_top,' +
         'page_tab_views_logout_top,' +
-        // Page CTA clicks
+// Page CTA clicks
         'page_total_actions,' +
         'page_cta_clicks_logged_in_total,' +
         'page_cta_clicks_logged_in_unique,' +
@@ -44,7 +44,30 @@ function buildUrl(pageCount, page_response) {
         'page_website_clicks_logged_in_by_country_unique,' +
         'page_website_clicks_logged_in_by_city_unique,' +
         'page_website_clicks_by_site_logged_in_unique,' +
-
+//Page Engagement
+        'page_engaged_users,' +
+        'page_post_engagements,' +
+        'page_consumptions,' +
+        'page_consumptions_unique,' +
+        'page_consumptions_by_consumption_type,' +
+        'page_consumptions_by_consumption_type_unique,' +
+        'page_places_checkin_total,' +
+        'page_places_checkin_total_unique,' +
+        'page_places_checkin_mobile,' +
+        'page_places_checkin_mobile_unique,' +
+        'page_places_checkins_by_age_gender,' +
+        'page_places_checkins_by_locale,' +
+        'page_places_checkins_by_country,' +
+        'page_negative_feedback,' +
+        'page_negative_feedback_unique,' +
+        'page_negative_feedback_by_type,' +
+        'page_negative_feedback_by_type_unique,' +
+        'page_positive_feedback_by_type,' +
+        'page_positive_feedback_by_type_unique,' +
+        'page_fans_online,' +
+        'page_fans_online_per_day,' +
+        'page_fan_adds_by_paid_non_paid_unique,' +
+// Page Impressions
         'page_content_activity,' +
         'page_impressions,' +
         'page_impressions_unique,' +
@@ -54,19 +77,47 @@ function buildUrl(pageCount, page_response) {
         'page_impressions_organic_unique,' +
         'page_impressions_viral,' +
         'page_impressions_viral_unique,' +
-        //Page Engagement
-        'page_engaged_users,' +
-        'page_post_engagements,' +
-        'page_consumptions,' +
-        'page_consumptions_unique,' +
-        
-        'page_places_checkin_total,' +
-        'page_places_checkin_total_unique,' +
-        'page_places_checkin_mobile,' +
-        'page_places_checkin_mobile_unique,' +
-        'page_negative_feedback,' +
-        'page_negative_feedback_unique,' +
-        'page_fans_online_per_day,' +
+        'page_impressions_nonviral,' +
+        'page_impressions_nonviral_unique,' +
+        'page_impressions_by_story_type,' +
+        'page_impressions_by_story_type_unique,' +
+        'page_impressions_by_city_unique,' +
+        'page_impressions_by_country_unique,' +
+        'page_impressions_by_locale_unique,' +
+        'page_impressions_by_age_gender_unique,' +
+        'page_impressions_frequency_distribution,' +
+        'page_impressions_viral_frequency_distribution,' +
+// Page Posts
+        'page_posts_impressions,' +
+        'page_posts_impressions_unique,' +
+        'page_posts_impressions_paid,' +
+        'page_posts_impressions_paid_unique,' +
+        'page_posts_impressions_organic,' +
+        'page_posts_impressions_organic_unique,' +
+        'page_posts_served_impressions_organic_unique,' +
+        'page_posts_impressions_viral,' +
+        'page_posts_impressions_viral_unique,' +
+        'page_posts_impressions_nonviral,' +
+        'page_posts_impressions_nonviral_unique,' +
+        'page_posts_impressions_frequency_distribution,' +
+// Page Post Engagement
+        'post_engaged_users,' +
+        'post_negative_feedback,' +
+        'post_negative_feedback_unique,' +
+        'post_negative_feedback_by_type,' +
+        'post_negative_feedback_by_type_unique,' +
+        'post_engaged_fan,' +
+        'post_clicks,' +
+        'post_clicks_unique,' +
+        'post_clicks_by_type,' +
+        'post_clicks_by_type_unique,' +
+// Negative Feedback Types
+        'hide_clicks,' +
+        'hide_all_clicks,' +
+        'report_spam_clicks,' +
+        'unlike_page_clicks,' +
+
+
         'page_actions_post_reactions_like_total,' +
         'page_actions_post_reactions_love_total,' +
         'page_actions_post_reactions_wow_total,' +
@@ -96,14 +147,7 @@ function buildUrl(pageCount, page_response) {
         'page_video_complete_views_30s_click_to_play,' +
         'page_video_complete_views_30s_unique,' +
         'page_video_complete_views_30s_repeat_views,' +
-        'page_posts_impressions,' +
-        'page_posts_impressions_unique,' +
-        'page_posts_impressions_paid,' +
-        'page_posts_impressions_paid_unique,' +
-        'page_posts_impressions_organic,' +
-        'page_posts_impressions_organic_unique,' +
-        'page_posts_impressions_viral,' +
-        'page_posts_impressions_viral_unique,' +
+
         '?since=' + SINCE_DAY;
     return next_page;
 }
@@ -125,141 +169,248 @@ myConnector.getSchema = function(schemaCallback) {
             dataType: tableau.dataTypeEnum.date
         },
 // Page Content
-    {
-        id: "page_tab_views_login_top_unique",
-        alias: "page_tab_views_login_top_unique",
-        description: "The number of users logged in to Facebook who saw tabs on your Page",
-        dataType: tableau.dataTypeEnum.int
-    }, {
-        id: "page_tab_views_login_top",
-        alias: "page_tab_views_login_top",
-        description: "The number of times users logged in to Facebook saw tabs on your Page",
-        dataType: tableau.dataTypeEnum.int
-    }, {
-        id: "page_tab_views_logout_top",
-        alias: "page_tab_views_logout_top",
-        description: "The number of times users not logged in to Facebook saw tabs on your Page",
-        dataType: tableau.dataTypeEnum.int
-    },
-// CTA Clicks
-    {
-        id: "page_total_actions",
-        alias: "page_total_actions",
-        description: "The number of clicks on your Page's contact info and call-to-action button",
-        dataType: tableau.dataTypeEnum.int
-    }, {
-        id: "page_cta_clicks_logged_in_total",
-        alias: "page_cta_clicks_logged_in_total",
-        description: "Total number of clicks on the Page CTA button by people who are logged in to Facebook.",
-        dataType: tableau.dataTypeEnum.int
-    }, {
-        id: "page_cta_clicks_logged_in_unique",
-        alias: "page_cta_clicks_logged_in_unique",
-        description: "Unique number of clicks on the Page CTA button by people who are logged in to Facebook",
-        dataType: tableau.dataTypeEnum.int
-    }, {
-        id: "page_cta_clicks_by_site_logged_in_unique",
-        alias: "page_cta_clicks_by_site_logged_in_unique",
-        description: "Number of people who are logged in to Facebook and clicked on the CTA button, broken down by www, mobile, api or other",
-        dataType: tableau.dataTypeEnum.int
-    }, {
-        id: "page_cta_clicks_by_age_gender_logged_in_unique",
-        alias: "page_cta_clicks_by_age_gender_logged_in_unique",
-        description: "Number of people who are logged in to Facebook and clicked the Page CTA button, broken down by age and gender group.",
-        dataType: tableau.dataTypeEnum.int
-    }, {
-        id: "page_cta_clicks_logged_in_by_country_unique",
-        alias: "page_cta_clicks_logged_in_by_country_unique",
-        description: "Number of people who are logged in to Facebook and clicked the Page CTA button, broken down by country",
-        dataType: tableau.dataTypeEnum.int
-    }, {
-        id: "page_cta_clicks_logged_in_by_city_unique",
-        alias: "page_cta_clicks_logged_in_by_city_unique",
-        description: "Number of people who are logged in to Facebook and clicked the Page CTA button, broken down by city",
-        dataType: tableau.dataTypeEnum.int
-    }, {
-        id: "page_call_phone_clicks_logged_in_unique",
-        alias: "page_call_phone_clicks_logged_in_unique",
-        description: "Number of people who logged in to Facebook and clicked the Call Now button",
-        dataType: tableau.dataTypeEnum.int
-    }, {
-        id: "page_call_phone_clicks_by_age_gender_logged_in_unique",
-        alias: "page_call_phone_clicks_by_age_gender_logged_in_unique",
-        description: "Number of people who logged in to Facebook and clicked the Call Now button, broken down by age and gender group",
-        dataType: tableau.dataTypeEnum.int
-    }, {
-        id: "page_call_phone_clicks_logged_in_by_country_unique",
-        alias: "page_call_phone_clicks_logged_in_by_country_unique",
-        description: "Number of people who logged in to Facebook and clicked the Call Now button, broken down by countries",
-        dataType: tableau.dataTypeEnum.int
-    }, {
-        id: "page_call_phone_clicks_logged_in_by_city_unique",
-        alias: "page_call_phone_clicks_logged_in_by_city_unique",
-        description: "Number of people who logged in to Facebook and clicked the Call Now button, broken down by city",
-        dataType: tableau.dataTypeEnum.int
-    }, {
-        id: "page_call_phone_clicks_by_site_logged_in_unique",
-        alias: "page_call_phone_clicks_by_site_logged_in_unique",
-        description: "The number of people who clicked your Page's phone number or Call Now button while they were logged into Facebook, broken down by the type of device they used",
-        dataType: tableau.dataTypeEnum.int
-    }, {
-        id: "page_get_directions_clicks_logged_in_unique",
-        alias: "page_get_directions_clicks_logged_in_unique",
-        description: "Number of people who logged in to Facebook and clicked the Get Directions button",
-        dataType: tableau.dataTypeEnum.int
-    }, {
-        id: "page_get_directions_clicks_by_age_gender_logged_in_unique",
-        alias: "page_get_directions_clicks_by_age_gender_logged_in_unique",
-        description: "Number of people who logged in to Facebook and clicked the Get Directions button, broken down by age and gender group",
-        dataType: tableau.dataTypeEnum.int
-    }, {
-        id: "page_get_directions_clicks_logged_in_by_country_unique",
-        alias: "page_get_directions_clicks_logged_in_by_country_unique",
-        description: "Number of people who logged in to Facebook and clicked the Get Directions button, broken down by country",
-        dataType: tableau.dataTypeEnum.int
-    }, {
-        id: "page_get_directions_clicks_logged_in_by_city_unique",
-        alias: "page_get_directions_clicks_logged_in_by_city_unique",
-        description: "Number of people who logged in to Facebook and clicked the Get Directions button, broken down by city",
-        dataType: tableau.dataTypeEnum.int
-    }, {
-        id: "page_get_directions_clicks_by_site_logged_in_unique",
-        alias: "page_get_directions_clicks_by_site_logged_in_unique",
-        description: "Number of people who logged in to Facebook and clicked the Get Directions button, broken down by www, mobile, api or other",
-        dataType: tableau.dataTypeEnum.int
-    }, {
-        id: "page_website_clicks_logged_in_unique",
-        alias: "page_website_clicks_logged_in_unique",
-        description: "Number of people who logged in to Facebook and clicked the goto website CTA button",
-        dataType: tableau.dataTypeEnum.int
-    }, {
-        id: "page_website_clicks_by_age_gender_logged_in_unique",
-        alias: "page_website_clicks_by_age_gender_logged_in_unique",
-        description: "Number of people who logged in to Facebook and clicked the goto website CTA button, broken down by age and gender group",
-        dataType: tableau.dataTypeEnum.int
-    }, {
-        id: "page_website_clicks_logged_in_by_country_unique",
-        alias: "page_website_clicks_logged_in_by_country_unique",
-        description: "Number of people who logged in to Facebook and clicked the goto website CTA button, broken down by country",
-        dataType: tableau.dataTypeEnum.int
-    }, {
-        id: "page_website_clicks_logged_in_by_city_unique",
-        alias: "page_website_clicks_logged_in_by_city_unique",
-        description: "Number of people who logged in to Facebook and clicked the goto website CTA button, broken down by city",
-        dataType: tableau.dataTypeEnum.int
-    }, {
-        id: "page_website_clicks_by_site_logged_in_unique",
-        alias: "page_website_clicks_by_site_logged_in_unique",
-        description: "Number of people who logged in to Facebook and clicked the Page CTA button, broken down by www, mobile, api and other",
-        dataType: tableau.dataTypeEnum.int
-    },
-
         {
-            id: "page_content_activity",
-            alias: "Page Content Activity",
-            description: "The number of stories created about your Page (Stories)",
+            id: "page_tab_views_login_top_unique",
+            alias: "page_tab_views_login_top_unique",
+            description: "The number of users logged in to Facebook who saw tabs on your Page",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_tab_views_login_top",
+            alias: "page_tab_views_login_top",
+            description: "The number of times users logged in to Facebook saw tabs on your Page",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_tab_views_logout_top",
+            alias: "page_tab_views_logout_top",
+            description: "The number of times users not logged in to Facebook saw tabs on your Page",
             dataType: tableau.dataTypeEnum.int
         },
+// CTA Clicks
+        {
+            id: "page_total_actions",
+            alias: "page_total_actions",
+            description: "The number of clicks on your Page's contact info and call-to-action button",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_cta_clicks_logged_in_total",
+            alias: "page_cta_clicks_logged_in_total",
+            description: "Total number of clicks on the Page CTA button by people who are logged in to Facebook.",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_cta_clicks_logged_in_unique",
+            alias: "page_cta_clicks_logged_in_unique",
+            description: "Unique number of clicks on the Page CTA button by people who are logged in to Facebook",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_cta_clicks_by_site_logged_in_unique",
+            alias: "page_cta_clicks_by_site_logged_in_unique",
+            description: "Number of people who are logged in to Facebook and clicked on the CTA button, broken down by www, mobile, api or other",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_cta_clicks_by_age_gender_logged_in_unique",
+            alias: "page_cta_clicks_by_age_gender_logged_in_unique",
+            description: "Number of people who are logged in to Facebook and clicked the Page CTA button, broken down by age and gender group.",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_cta_clicks_logged_in_by_country_unique",
+            alias: "page_cta_clicks_logged_in_by_country_unique",
+            description: "Number of people who are logged in to Facebook and clicked the Page CTA button, broken down by country",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_cta_clicks_logged_in_by_city_unique",
+            alias: "page_cta_clicks_logged_in_by_city_unique",
+            description: "Number of people who are logged in to Facebook and clicked the Page CTA button, broken down by city",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_call_phone_clicks_logged_in_unique",
+            alias: "page_call_phone_clicks_logged_in_unique",
+            description: "Number of people who logged in to Facebook and clicked the Call Now button",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_call_phone_clicks_by_age_gender_logged_in_unique",
+            alias: "page_call_phone_clicks_by_age_gender_logged_in_unique",
+            description: "Number of people who logged in to Facebook and clicked the Call Now button, broken down by age and gender group",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_call_phone_clicks_logged_in_by_country_unique",
+            alias: "page_call_phone_clicks_logged_in_by_country_unique",
+            description: "Number of people who logged in to Facebook and clicked the Call Now button, broken down by countries",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_call_phone_clicks_logged_in_by_city_unique",
+            alias: "page_call_phone_clicks_logged_in_by_city_unique",
+            description: "Number of people who logged in to Facebook and clicked the Call Now button, broken down by city",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_call_phone_clicks_by_site_logged_in_unique",
+            alias: "page_call_phone_clicks_by_site_logged_in_unique",
+            description: "The number of people who clicked your Page's phone number or Call Now button while they were logged into Facebook, broken down by the type of device they used",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_get_directions_clicks_logged_in_unique",
+            alias: "page_get_directions_clicks_logged_in_unique",
+            description: "Number of people who logged in to Facebook and clicked the Get Directions button",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_get_directions_clicks_by_age_gender_logged_in_unique",
+            alias: "page_get_directions_clicks_by_age_gender_logged_in_unique",
+            description: "Number of people who logged in to Facebook and clicked the Get Directions button, broken down by age and gender group",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_get_directions_clicks_logged_in_by_country_unique",
+            alias: "page_get_directions_clicks_logged_in_by_country_unique",
+            description: "Number of people who logged in to Facebook and clicked the Get Directions button, broken down by country",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_get_directions_clicks_logged_in_by_city_unique",
+            alias: "page_get_directions_clicks_logged_in_by_city_unique",
+            description: "Number of people who logged in to Facebook and clicked the Get Directions button, broken down by city",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_get_directions_clicks_by_site_logged_in_unique",
+            alias: "page_get_directions_clicks_by_site_logged_in_unique",
+            description: "Number of people who logged in to Facebook and clicked the Get Directions button, broken down by www, mobile, api or other",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_website_clicks_logged_in_unique",
+            alias: "page_website_clicks_logged_in_unique",
+            description: "Number of people who logged in to Facebook and clicked the goto website CTA button",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_website_clicks_by_age_gender_logged_in_unique",
+            alias: "page_website_clicks_by_age_gender_logged_in_unique",
+            description: "Number of people who logged in to Facebook and clicked the goto website CTA button, broken down by age and gender group",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_website_clicks_logged_in_by_country_unique",
+            alias: "page_website_clicks_logged_in_by_country_unique",
+            description: "Number of people who logged in to Facebook and clicked the goto website CTA button, broken down by country",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_website_clicks_logged_in_by_city_unique",
+            alias: "page_website_clicks_logged_in_by_city_unique",
+            description: "Number of people who logged in to Facebook and clicked the goto website CTA button, broken down by city",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_website_clicks_by_site_logged_in_unique",
+            alias: "page_website_clicks_by_site_logged_in_unique",
+            description: "Number of people who logged in to Facebook and clicked the Page CTA button, broken down by www, mobile, api and other",
+            dataType: tableau.dataTypeEnum.int
+        },
+
+//Page Engagemnt
+        {
+            id: "page_engaged_users",
+            alias: "Page Engaged Users",
+            description: "The number of people who engaged with your Page. Engagement includes any click",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_post_engagements",
+            alias: "page_post_engagements",
+            description: "The number of times people have engaged with your posts through reactions, comments, shares and more",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_consumptions",
+            alias: "Page Consumptions",
+            description: "The number of times people clicked on any of your content",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_consumptions_unique",
+            alias: "Page Consumptions Unique",
+            description: "The number of people who clicked on any of your content",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_consumptions_by_consumption_type",
+            alias: "page_consumptions_by_consumption_type",
+            description: "The number of times people clicked on any of your content, by type",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_consumptions_by_consumption_type_unique",
+            alias: "page_consumptions_by_consumption_type_unique",
+            description: "The number of people who clicked on any of your content, by type",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_places_checkin_total",
+            alias: "Page Places Checkin Total",
+            description: "The number of times people checked into a place",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_places_checkin_total_unique",
+            alias: "Page Places Checkin Total Unique",
+            description: "The number of people who checked into a place",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_places_checkin_mobile",
+            alias: "Page Places Checkin Mobile",
+            description: "The number of times people checked into a place using mobile phones",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_places_checkin_mobile_unique",
+            alias: "Page Places Checkin Mobile Unique",
+            description: "The number of people who checked into a place using mobile phones",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_places_checkins_by_age_gender",
+            alias: "page_places_checkins_by_age_gender",
+            description: "gender and age of people who checked in at your Place",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_places_checkins_by_locale",
+            alias: "page_places_checkins_by_locale",
+            description: "top locales of people who checked into your Place",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_places_checkins_by_country",
+            alias: "page_places_checkins_by_country",
+            description: "top countries of people who checked into your Place",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_negative_feedback",
+            alias: "Page Negative Feedback",
+            description: "The number of times people took a negative action (e.g., un-liked or hid a post)",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_negative_feedback_unique",
+            alias: "Page Negative Feedback Unique",
+            description: "The number of people who took a negative action (e.g., un-liked or hid a post)",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_negative_feedback_by_type",
+            alias: "page_negative_feedback_by_type",
+            description: "The number of times people took a negative action broken down by type",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_negative_feedback_by_type_unique",
+            alias: "page_negative_feedback_by_type_unique",
+            description: "The number of people who took a negative action broken down by type",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_positive_feedback_by_type",
+            alias: "page_positive_feedback_by_type",
+            description: "The number of times people took a positive action broken down by type",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_positive_feedback_by_type_unique",
+            alias: "page_positive_feedback_by_type_unique",
+            description: "The number of people who took a positive action broken down by type",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_fans_online",
+            alias: "page_fans_online",
+            description: "The number of your fans who saw any posts on Facebook on a given day, broken down by hour of day in PST/PDT",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_fans_online_per_day",
+            alias: "Page Fans Online Per Day",
+            description: "The number of your fans who saw any posts on Facebook on a given day",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_fan_adds_by_paid_non_paid_unique",
+            alias: "page_fan_adds_by_paid_non_paid_unique",
+            description: "The number of new people who have liked your Page broken down by paid and non-paid",
+            dataType: tableau.dataTypeEnum.int
+        },
+// Page Impressions
         {
             id: "page_impressions",
             alias: "Page Impressions",
@@ -300,76 +451,214 @@ myConnector.getSchema = function(schemaCallback) {
             alias: "Page Impressions Viral Unique",
             description: "The number of people who saw your Page or one of its posts from a story published by a friend. These stories include liking your Page, posting to your Page's Wall, liking, commenting on or sharing one of your Page posts, answering a Question you posted, RSVPing to one of your events, mentioning your Page, phototagging your Page or checking in at your Place",
             dataType: tableau.dataTypeEnum.int
-        },
-    //Page Engagemnt
-        {
-            id: "page_engaged_users",
-            alias: "Page Engaged Users",
-            description: "The number of people who engaged with your Page. Engagement includes any click",
+        }, {
+            id: "page_impressions_nonviral",
+            alias: "page_impressions_nonviral",
+            description: "The number of times any content from your Page entered a person's screen. This does not include content created about your Page with social information attached. Social information displays when a person's friend interacted with your Page, post or story. This includes when someone's friend likes or follows your Page, engages with a post, shares a photo of your Page and checks into your Page",
             dataType: tableau.dataTypeEnum.int
         }, {
-            id: "page_post_engagements",
-            alias: "page_post_engagements",
-            description: "The number of times people have engaged with your posts through reactions, comments, shares and more",
+            id: "page_impressions_nonviral_unique",
+            alias: "page_impressions_nonviral_unique",
+            description: "The number of people who had any content from your Page enter their screen. This does not include content created about your Page with social information attached. As a form of organic distribution, social information displays when a person's friend interacted with your Page, post or story. This includes when someone's friend likes or follows your Page, engages with a post, shares a photo of your Page and checks into your Page",
             dataType: tableau.dataTypeEnum.int
         }, {
-            id: "page_consumptions",
-            alias: "Page Consumptions",
-            description: "The number of times people clicked on any of your content",
+            id: "page_impressions_by_story_type",
+            alias: "page_impressions_by_story_type",
+            description: "Total impressions of posts published by a friend about your Page by type",
             dataType: tableau.dataTypeEnum.int
         }, {
-            id: "page_consumptions_unique",
-            alias: "Page Consumptions Unique",
-            description: "The number of people who clicked on any of your content",
+            id: "page_impressions_by_story_type_unique",
+            alias: "page_impressions_by_story_type_unique",
+            description: "The number of people who saw posts published by a friend about your Page by type",
             dataType: tableau.dataTypeEnum.int
         }, {
-            id: "page_places_checkin_total",
-            alias: "Page Places Checkin Total",
-            description: "The number of times people checked into a place",
+            id: "page_impressions_by_city_unique",
+            alias: "page_impressions_by_city_unique",
+            description: "The number of people who have seen any content associated with your Page by city",
             dataType: tableau.dataTypeEnum.int
         }, {
-            id: "page_places_checkin_total_unique",
-            alias: "Page Places Checkin Total Unique",
-            description: "The number of people who checked into a place",
+            id: "page_impressions_by_country_unique",
+            alias: "page_impressions_by_country_unique",
+            description: "The number of people who have seen any content associated with your Page by country",
             dataType: tableau.dataTypeEnum.int
         }, {
-            id: "page_places_checkin_mobile",
-            alias: "Page Places Checkin Mobile",
-            description: "The number of times people checked into a place using mobile phones",
+            id: "page_impressions_by_locale_unique",
+            alias: "page_impressions_by_locale_unique",
+            description: "The number of people who have seen any content associated with your Page by user selected language",
             dataType: tableau.dataTypeEnum.int
         }, {
-            id: "page_places_checkin_mobile_unique",
-            alias: "Page Places Checkin Mobile Unique",
-            description: "The number of people who checked into a place using mobile phones",
+            id: "page_impressions_by_age_gender_unique",
+            alias: "page_impressions_by_age_gender_unique",
+            description: "The number of people who saw any content by your Page or about your Page, grouped by age and gender. This number is an estimate",
             dataType: tableau.dataTypeEnum.int
         }, {
-            id: "page_negative_feedback",
-            alias: "Page Negative Feedback",
-            description: "The number of times people took a negative action (e.g., un-liked or hid a post)",
+            id: "page_impressions_frequency_distribution",
+            alias: "page_impressions_frequency_distribution",
+            description: "The number of people your Page reached broken down by how many times people saw any content about your Page",
             dataType: tableau.dataTypeEnum.int
         }, {
-            id: "page_negative_feedback_unique",
-            alias: "Page Negative Feedback Unique",
-            description: "The number of people who took a negative action (e.g., un-liked or hid a post)",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_fans_online_per_day",
-            alias: "Page Fans Online Per Day",
-            description: "The number of your fans who saw any posts on Facebook on a given day",
+            id: "page_impressions_viral_frequency_distribution",
+            alias: "page_impressions_viral_frequency_distribution",
+            description: "The number of people your Page reached from a story published by a friend, broken down by how many times people saw stories about your Page",
             dataType: tableau.dataTypeEnum.int
         },
+// Page Posts
         {
-            id: "page_actions_post_reactions_like_total",
+            id: "page_posts_impressions",
+            alias: "Page Posts Impressions",
+            description: "The number of impressions that came from all of your posts",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_posts_impressions_unique",
+            alias: "Page Posts Impressions Unique",
+            description: "The number of people who saw any of your Page posts",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_posts_impressions_paid",
+            alias: "Page Posts Impressions Paid",
+            description: "The number of impressions of your Page posts in an Ad or Sponsored Story",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_posts_impressions_paid_unique",
+            alias: "Page Posts Impressions Paid Unique",
+            description: "The number of people who saw your Page posts in an Ad or Sponsored Story",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_posts_impressions_organic",
+            alias: "Page Posts Impressions Organic",
+            description: "The number of impressions of your posts in News Feed or Ticker or on your Page",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_posts_impressions_organic_unique",
+            alias: "Page Posts Impressions Organic Unique",
+            description: "The number of people who saw your Page posts in News Feed or Ticker, or on your Page's Wall",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_posts_served_impressions_organic_unique",
+            alias: "page_posts_served_impressions_organic_unique",
+            description: "The number of people who were served your Page's posts in their News Feed whether it entered their screen or not. Posts include statuses, photos, links, videos and more",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_posts_impressions_viral",
+            alias: "Page Posts Impressions Viral",
+            description: "The number of times users saw your posts via stories published by their friends",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_posts_impressions_viral_unique",
+            alias: "Page Posts Impressions Viral Unique",
+            description: "The number of people who saw your Page posts via a story from a friend",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_posts_impressions_nonviral",
+            alias: "page_posts_impressions_nonviral",
+            description: "The number of times your Page's posts entered a person's screen. This does not include content created about your Page with social information attached. Social information displays when a person's friend interacted with you Page or post. This includes when someone's friend likes or follows your Page, engages with a post, shares a photo of your Page and checks into your Page",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_posts_impressions_nonviral_unique",
+            alias: "page_posts_impressions_nonviral_unique",
+            description: "The number of people who had any posts by your Page enter their screen. This does not include content created about your Page with social information attached. As a form of organic distribution, social information displays when a person's friend interacted with you Page or post. This includes when someone's friend likes or follows your Page, engages with a post, shares a photo of your Page and checks into your Page",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "page_posts_impressions_frequency_distribution",
+            alias: "page_posts_impressions_frequency_distribution",
+            description: "The number of people who saw your Page posts, broken down by how many times people saw your posts",
+            dataType: tableau.dataTypeEnum.int
+        },
+// Page Post Engagement
+        {
+            id: "post_engaged_users",
+            alias: "post_engaged_users",
+            description: "The number of people who clicked anywhere in your posts",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "post_negative_feedback",
+            alias: "post_negative_feedback",
+            description: "The number of times people took a negative action in your post (e.g. hid it)",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "post_negative_feedback_unique",
+            alias: "post_negative_feedback_unique",
+            description: "The number of people who took a negative action in your post (e.g., hid it)",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "post_negative_feedback_by_type",
+            alias: "post_negative_feedback_by_type",
+            description: "The number of times people took a negative action in your post broken down by type",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "post_negative_feedback_by_type_unique",
+            alias: "post_negative_feedback_by_type_unique",
+            description: "The number of people who took a negative action in your post broken down by type",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "post_engaged_fan",
+            alias: "post_engaged_fan",
+            description: "People who have liked your Page and engaged with your post",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "post_clicks",
+            alias: "post_clicks",
+            description: "The number of times people clicked on anywhere in your posts without generating a story",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "post_clicks_unique",
+            alias: "post_clicks_unique",
+            description: "The number of people who clicked anywhere in your post without generating a story",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "post_clicks_by_type",
+            alias: "post_clicks_by_type",
+            description: "The number of times people clicked on anywhere in your posts without generating a story, by consumption type",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "post_clicks_by_type_unique",
+            alias: "post_clicks_by_type_unique",
+            description: "The number of people who clicked anywhere in your post without generating a story, by consumption type",
+            dataType: tableau.dataTypeEnum.int
+        },
+// Negative Feedback Types
+        {
+            id: "hide_clicks",
+            alias: "hide_clicks",
+            description: "Hide this story",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "hide_all_clicks",
+            alias: "hide_all_clicks",
+            description: "Hide all posts from this page",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "report_spam_clicks",
+            alias: "report_spam_clicks",
+            description: "Report an object as a spam",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "unlike_page_clicks",
+            alias: "unlike_page_clicks",
+            description: "Unlike a page",
+            dataType: tableau.dataTypeEnum.int
+        },
+
+
+            {
+                id: "page_content_activity",
+                alias: "Page Content Activity",
+                description: "The number of stories created about your Page (Stories)",
+                dataType: tableau.dataTypeEnum.int
+            },
+
+        {
+            id: "page_actions_reactions_like_total",
             alias: "Page Actions Post Reactions Like Total",
             description: "Daily total post \"like\" reactions of a page",
             dataType: tableau.dataTypeEnum.int
         }, {
-            id: "page_actions_post_reactions_love_total",
+            id: "page_actions_reactions_love_total",
             alias: "Page Actions Post Reactions Love Total",
             description: "Daily total post \"love\" reactions of a page",
             dataType: tableau.dataTypeEnum.int
         }, {
-            id: "page_actions_post_reactions_wow_total",
+            id: "page_actions_reactions_wow_total",
             alias: "Page Actions Post Reactions Wow Total",
             description: "Daily total post \"wow\" reactions of a page",
             dataType: tableau.dataTypeEnum.int
@@ -506,47 +795,6 @@ myConnector.getSchema = function(schemaCallback) {
             id: "page_video_complete_views_30s_repeat_views",
             alias: "Page Video Complete Views 30s Repeat Views",
             description: "Total number of times that people replay a page's videos to the end, or for more than 30 seconds",
-            dataType: tableau.dataTypeEnum.int
-        },
-        {
-            id: "page_posts_impressions",
-            alias: "Page Posts Impressions",
-            description: "The number of impressions that came from all of your posts",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_posts_impressions_unique",
-            alias: "Page Posts Impressions Unique",
-            description: "The number of people who saw any of your Page posts",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_posts_impressions_paid",
-            alias: "Page Posts Impressions Paid",
-            description: "The number of impressions of your Page posts in an Ad or Sponsored Story",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_posts_impressions_paid_unique",
-            alias: "Page Posts Impressions Paid Unique",
-            description: "The number of people who saw your Page posts in an Ad or Sponsored Story",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_posts_impressions_organic",
-            alias: "Page Posts Impressions Organic",
-            description: "The number of impressions of your posts in News Feed or Ticker or on your Page",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_posts_impressions_organic_unique",
-            alias: "Page Posts Impressions Organic Unique",
-            description: "The number of people who saw your Page posts in News Feed or Ticker, or on your Page's Wall",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_posts_impressions_viral",
-            alias: "Page Posts Impressions Viral",
-            description: "The number of times users saw your posts via stories published by their friends",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_posts_impressions_viral_unique",
-            alias: "Page Posts Impressions Viral Unique",
-            description: "The number of people who saw your Page posts via a story from a friend",
             dataType: tableau.dataTypeEnum.int
         }
     ];
