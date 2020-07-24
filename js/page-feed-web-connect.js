@@ -349,8 +349,7 @@ myConnector.getSchema = function(schemaCallback) {
             alias: "post_reactions_by_type_total",
             dataType: tableau.dataTypeEnum.int
         },
-
-        // Page Video Posts
+      // Page Video Posts
            {
             id: "post_video_avg_time_watched",
             alias: "Post Video Avg Time Watched",
