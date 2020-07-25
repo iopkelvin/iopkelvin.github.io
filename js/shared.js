@@ -39,7 +39,7 @@ function login() {
     var uri = window.location.href;
 
     window.top.location = encodeURI("https://www.facebook.com/dialog/oauth?client_id=" + APP_ID + "&redirect_uri=" + uri +
-    "&response_type=token&scope=pages_manage_ads,pages_manage_metadata,pages_read_engagement,pages_show_list,pages_read_user_content,read_insights,pages_manage_posts,pages_manage_engagement,catalog_management,user_videos,user_posts,user_photos,user_location,user_link,user_likes,user_hometown,user_gender,user_friends,user_birthday,user_age_range,publish_video,publish_to_groups,pages_manage_instant_articles,pages_manage_cta,leads_retrieval,groups_access_member");
+    "&response_type=token&scope=pages_manage_ads,pages_manage_metadata,pages_read_engagement,pages_show_list,pages_read_user_content,read_insights,pages_manage_posts,pages_manage_engagement,catalog_management,user_videos,user_posts,user_photos,user_location,user_link,user_likes,user_hometown,user_gender,user_friends,user_birthday,user_age_range,publish_video,publish_to_groups,pages_manage_instant_articles,pages_manage_cta,leads_retrieval,groups_access_member_info,attribution_read,ads_read,ads_management");
 }
 
 /**
