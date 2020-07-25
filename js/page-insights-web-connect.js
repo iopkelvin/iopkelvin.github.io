@@ -24,7 +24,7 @@ function buildUrl(pageCount, page_response) {
         // 'page_tab_views_login_top_unique,' +
         // 'page_tab_views_login_top,' +
         // 'page_tab_views_logout_top,' +
-// Page CTA clicks
+// Page CTA clicks (22)
         'page_total_actions,' +
         'page_cta_clicks_logged_in_total,' +
         'page_cta_clicks_logged_in_unique,' +
@@ -47,7 +47,7 @@ function buildUrl(pageCount, page_response) {
         'page_website_clicks_logged_in_by_country_unique,' +
         'page_website_clicks_logged_in_by_city_unique,' +
         'page_website_clicks_by_site_logged_in_unique,' +
-//Page Engagement
+//Page Engagement (18)
         'page_engaged_users,' +
         'page_post_engagements,' +
         'page_consumptions,' +
@@ -71,7 +71,7 @@ function buildUrl(pageCount, page_response) {
         'page_fans_online,' +
         'page_fans_online_per_day,' +
         'page_fan_adds_by_paid_non_paid_unique,' +
-// Page Impressions
+// Page Impressions (18)
         'page_impressions,' +
         'page_impressions_unique,' +
         'page_impressions_paid,' +
@@ -90,7 +90,7 @@ function buildUrl(pageCount, page_response) {
         'page_impressions_by_age_gender_unique,' +
         'page_impressions_frequency_distribution,' +
         'page_impressions_viral_frequency_distribution,' +
-// Page Posts
+// Page Posts (12)
         'page_posts_impressions,' +
         'page_posts_impressions_unique,' +
         'page_posts_impressions_paid,' +
@@ -103,7 +103,7 @@ function buildUrl(pageCount, page_response) {
         'page_posts_impressions_nonviral,' +
         'page_posts_impressions_nonviral_unique,' +
         'page_posts_impressions_frequency_distribution,' +
-// Page Post Engagement
+// Page Post Engagement (10)
         'post_engaged_users,' +
         'post_negative_feedback,' +
         'post_negative_feedback_unique,' +
@@ -114,7 +114,7 @@ function buildUrl(pageCount, page_response) {
         'post_clicks_unique,' +
         'post_clicks_by_type,' +
         'post_clicks_by_type_unique,' +
-// Page Reactions
+// Page Reactions (7)
         'page_actions_post_reactions_like_total,' +
         'page_actions_post_reactions_love_total,' +
         'page_actions_post_reactions_wow_total,' +
@@ -122,7 +122,7 @@ function buildUrl(pageCount, page_response) {
         'page_actions_post_reactions_sorry_total,' +
         'page_actions_post_reactions_anger_total,' +
         'page_actions_post_reactions_total,' +
-// Page User Demographics
+// Page User Demographics (10)
         'page_fans,' +
         'page_fans_locale,' +
         'page_fans_city,' +
@@ -136,7 +136,7 @@ function buildUrl(pageCount, page_response) {
         'page_fan_removes,' +
         'page_fan_removes_unique,' +
         'page_fans_by_unlike_source_unique,' +
-// Page Video Views
+// Page Video Views (28)
         'page_video_views,' +
         'page_video_views_paid,' +
         'page_video_views_organic,' +
@@ -165,7 +165,7 @@ function buildUrl(pageCount, page_response) {
         'page_video_views_10s_unique,' +
         'page_video_views_10s_repeat,' +
         'page_video_view_time,' +
-// Page Views
+// Page Views (11)
         'page_views_total,' +
         'page_views_logout,' +
         'page_views_logged_in_total,' +
@@ -180,7 +180,7 @@ function buildUrl(pageCount, page_response) {
 
 // Page Video Posts. 32 metrics
 
-// Stories
+// Stories (9)
         // 9 types for both
         //'page_content_activity_by_action_type_unique,' +
         'page_content_activity_by_age_gender_unique,' +
@@ -234,7 +234,7 @@ myConnector.getSchema = function(schemaCallback) {
         //     dataType: tableau.dataTypeEnum.int
         // },
 
-// CTA Clicks
+// CTA Clicks (22)
            {
             id: "page_total_actions",
             alias: "page_total_actions",
@@ -347,7 +347,7 @@ myConnector.getSchema = function(schemaCallback) {
             dataType: tableau.dataTypeEnum.int
         },
 
-//Page Engagemnt
+//Page Engagemnt (18)
            {
             id: "page_engaged_users",
             alias: "Page Engaged Users",
@@ -459,7 +459,7 @@ myConnector.getSchema = function(schemaCallback) {
             description: "The number of new people who have liked your Page broken down by paid and non-paid",
             dataType: tableau.dataTypeEnum.int
         },
-// Page Impressions
+// Page Impressions (18)
            {
             id: "page_impressions",
             alias: "Page Impressions",
@@ -551,7 +551,7 @@ myConnector.getSchema = function(schemaCallback) {
             description: "The number of people your Page reached from a story published by a friend, broken down by how many times people saw stories about your Page",
             dataType: tableau.dataTypeEnum.int
         },
-// Page Posts
+// Page Posts (12)
            {
             id: "page_posts_impressions",
             alias: "Page Posts Impressions",
@@ -613,7 +613,7 @@ myConnector.getSchema = function(schemaCallback) {
             description: "The number of people who saw your Page posts, broken down by how many times people saw your posts",
             dataType: tableau.dataTypeEnum.int
         },
-// Page Post Engagement
+// Page Post  (10)
            {
             id: "post_engaged_users",
             alias: "post_engaged_users",
@@ -666,7 +666,7 @@ myConnector.getSchema = function(schemaCallback) {
             dataType: tableau.dataTypeEnum.int
         },
 
-
+        // (7)
 
         {
             id: "page_actions_reactions_like_total",
@@ -705,7 +705,7 @@ myConnector.getSchema = function(schemaCallback) {
             dataType: tableau.dataTypeEnum.int
         },
 
-// Page User Demographics
+// Page User Demographics (10)
         {
             id: "page_fans",
             alias: "Page Fans",
@@ -758,7 +758,7 @@ myConnector.getSchema = function(schemaCallback) {
             dataType: tableau.dataTypeEnum.int
         },
 
-// Page Video Views
+// Page Video Views (28)
            {
             id: "page_video_views",
             alias: "Page Video Views",
@@ -900,7 +900,7 @@ myConnector.getSchema = function(schemaCallback) {
             description: "The total time, in milliseconds, people viewed your Page's video.",
             dataType: tableau.dataTypeEnum.int
         },
-// Page Views
+// Page Views (11)
            {
             id: "page_views_total",
             alias: "Page Views Total",
@@ -958,7 +958,7 @@ myConnector.getSchema = function(schemaCallback) {
             dataType: tableau.dataTypeEnum.int
         },
 
-// Stories
+// Stories (9)
            {
             id: "page_content_activity_by_age_gender_unique",
             alias: "page_content_activity_by_age_gender_unique",
