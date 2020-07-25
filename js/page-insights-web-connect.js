@@ -1140,8 +1140,5 @@ function getFbFeed(table, doneCallback, next_page, pagesCount, pagesInfo, curren
                 return;
             }
         });
-
-
 }
-
 tableau.registerConnector(myConnector);

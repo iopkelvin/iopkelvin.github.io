@@ -1,5 +1,16 @@
 var CONNECTION_NAME = 'Facebook page feed';
 
+//Helper function. Returns property if it exists in data object.
+function ifexists(data, property) {
+    var str = property.split('.')[0]; //get top level object
+    if (data.hasOwnProperty(str)) {
+        var strToRet = data[property.split('.')[0]][property.split('.')[1]]; //return second level object
+        return strToRet;
+    } else {
+        return '';
+    }
+}
+
 var insightsMetrics = [
     'post_impressions',
     'post_impressions_unique',
@@ -78,7 +89,6 @@ function buildUrl(pageCount, page_response) {
     var next_page = '/' + page_response[page_ids[pageCount - 1]].id + '/feed?fields=' + metrics.join();
     return next_page;
 }
-
 var myConnector = tableau.makeConnector();
 // Define the schema
 myConnector.getSchema = function(schemaCallback) {
@@ -420,18 +430,16 @@ myConnector.getData = function getData(table, doneCallback) {
 };
 */
 
-//Helper function. Returns property if it exists in data object.
-function ifexists(data, property) {
-    var str = property.split('.')[0]; //get top level object
-    if (data.hasOwnProperty(str)) {
-        var strToRet = data[property.split('.')[0]][property.split('.')[1]]; //return second level object
-        return strToRet;
-    } else {
-        return '';
-    }
-}
-
-
+/** Copy from insight
+ * 6. Populate table in tableu with data
+ * @param  {[type]}
+ * @param  {[type]}
+ * @param  {[type]}
+ * @param  {[type]}
+ * @param  {[type]}
+ * @param  {[type]}
+ * @return {[type]}
+ */
 function getFbFeed(table, doneCallback, next_page, pagesCount, pagesInfo, currentPageLoop) {
     var pageInfo = pagesInfo[currentPageLoop]
     var page_response = pageInfo.page_response;
@@ -465,7 +473,6 @@ function getFbFeed(table, doneCallback, next_page, pagesCount, pagesInfo, curren
                     if (data[ii].likes) {
                         totalLikes = data[ii].likes.summary.total_count;
                     }
-
                     //get total reactions
                     var totalReactions;
                     if (data[ii].reactions) {
