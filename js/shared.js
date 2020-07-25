@@ -38,9 +38,7 @@ window.fbAsyncInit = function() {
 function login() {
     var uri = window.location.href;
 
-    window.top.location = encodeURI("https://www.facebook.com/dialog/oauth?client_id=" + APP_ID + "&redirect_uri=" + uri + "&response_type=token&scope=pages_manage_ads,pages_manage_metadata,pages_read_engagement,pages_show_list,pages_read_user_content,read_insights,pages_manage_posts,pages_manage_engagement,pages_manage_instant_articles,pages_manage_cta");
-//,pages_manage_posts,pages_manage_engagement,
-//user_videos,user_posts,user_photos,user_location,user_link,user_likes,user_hometown,user_gender,user_friends,user_birthday,user_age_range,pages_manage_instant_articles,pages_manage_cta,page_mentions
+    window.top.location = encodeURI("https://www.facebook.com/dialog/oauth?client_id=" + APP_ID + "&redirect_uri=" + uri + "&response_type=token&scope=pages_manage_ads,pages_manage_metadata,pages_read_engagement,pages_show_list,pages_read_user_content,read_insights,pages_manage_posts,pages_manage_engagement,user_videos,user_posts,user_photos,user_location,user_link,user_likes,user_hometown,user_gender,user_friends,user_birthday,user_age_range,pages_manage_instant_articles,pages_manage_cta");
 }
 
 /**
