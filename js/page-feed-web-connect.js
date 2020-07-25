@@ -1,14 +1,6 @@
 var CONNECTION_NAME = 'Facebook page feed';
 
 var insightsMetrics = [
-// Page Post Engagement by type (4)
-    'post_engaged_users',
-    'post_negative_feedback',
-    'post_negative_feedback_unique',
-    'post_engaged_fan',
-    'post_clicks',
-    'post_clicks_unique',
-// Page Post Impressions
     'post_impressions',
     'post_impressions_unique',
     'post_impressions_paid',
@@ -21,24 +13,17 @@ var insightsMetrics = [
     'post_impressions_organic_unique',
     'post_impressions_viral',
     'post_impressions_viral_unique',
-    'post_impressions_nonviral',
-    'post_impressions_nonviral_unique',
-    // 2 by type
-// Page Post reactions
-    'post_reactions_like_total',
-    'post_reactions_love_total',
-    'post_reactions_wow_total',
-    'post_reactions_haha_total',
-    'post_reactions_sorry_total',
-    'post_reactions_anger_total',
-    'post_reactions_by_type_total',
-// Page Video Posts
+    'post_clicks',
+    'post_clicks_unique',
+    'post_engaged_users',
+    'post_negative_feedback',
+    'post_negative_feedback_unique',
+    'post_engaged_fan',
     'post_video_avg_time_watched',
     'post_video_complete_views_organic',
     'post_video_complete_views_organic_unique',
     'post_video_complete_views_paid',
     'post_video_complete_views_paid_unique',
-    // 3 graph
     'post_video_views_organic',
     'post_video_views_organic_unique',
     'post_video_views_paid',
@@ -58,7 +43,6 @@ var insightsMetrics = [
     'post_video_views_sound_on',
     'post_video_view_time',
     'post_video_view_time_organic'
-    // 5 by type
 ];
 var metrics = [
     'reactions.limit(0).summary(true)',
@@ -235,34 +219,7 @@ myConnector.getSchema = function(schemaCallback) {
         alias: "Admin Creator",
         dataType: tableau.dataTypeEnum.string
     },
-        // Post Engaged Users
-           {
-            id: "post_engaged_users",
-            alias: "Post Engaged Users",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "post_negative_feedback",
-            alias: "Post Negative Feedback",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "post_negative_feedback_unique",
-            alias: "Post Negative Feedback Unique",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "post_engaged_fan",
-            alias: "Post Engaged Fan",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "post_clicks",
-            alias: "Post Clicks",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "post_clicks_unique",
-            alias: "Post Clicks Unique",
-            dataType: tableau.dataTypeEnum.int
-        },
-        // Page Post Impressions
-           {
+        {
             id: "post_impressions",
             alias: "Post Impressions",
             dataType: tableau.dataTypeEnum.int
@@ -310,47 +267,32 @@ myConnector.getSchema = function(schemaCallback) {
             id: "post_impressions_viral_unique",
             alias: "Post Impressions Viral Unique",
             dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "post_impressions_nonviral",
-            alias: "Post Impressions Non Viral",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "post_impressions_nonviral_unique",
-            alias: "Post Impressions Non Viral Unique",
-            dataType: tableau.dataTypeEnum.int
         },
-        // Page Post Reactions
-           {
-            id: "post_reactions_like_total",
-            alias: "post_reactions_like_total",
+        {
+            id: "post_clicks",
+            alias: "Post Clicks",
             dataType: tableau.dataTypeEnum.int
         }, {
-            id: "post_reactions_love_total",
-            alias: "post_reactions_love_total",
+            id: "post_clicks_unique",
+            alias: "Post Clicks Unique",
             dataType: tableau.dataTypeEnum.int
         }, {
-            id: "post_reactions_wow_total",
-            alias: "post_reactions_wow_total",
+            id: "post_engaged_users",
+            alias: "Post Engaged Users",
             dataType: tableau.dataTypeEnum.int
         }, {
-            id: "post_reactions_haha_total",
-            alias: "post_reactions_haha_total",
+            id: "post_negative_feedback",
+            alias: "Post Negative Feedback",
             dataType: tableau.dataTypeEnum.int
         }, {
-            id: "post_reactions_sorry_total",
-            alias: "post_reactions_sorry_total",
+            id: "post_negative_feedback_unique",
+            alias: "Post Negative Feedback Unique",
             dataType: tableau.dataTypeEnum.int
         }, {
-            id: "post_reactions_anger_total",
-            alias: "post_reactions_anger_total",
+            id: "post_engaged_fan",
+            alias: "Post Engaged Fan",
             dataType: tableau.dataTypeEnum.int
         }, {
-            id: "post_reactions_by_type_total",
-            alias: "post_reactions_by_type_total",
-            dataType: tableau.dataTypeEnum.int
-        },
-      // Page Video Posts
-           {
             id: "post_video_avg_time_watched",
             alias: "Post Video Avg Time Watched",
             dataType: tableau.dataTypeEnum.int
