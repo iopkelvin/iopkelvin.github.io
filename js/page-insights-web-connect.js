@@ -29,23 +29,23 @@ function buildUrl(pageCount, page_response) {
         'page_cta_clicks_logged_in_total,' +
         'page_cta_clicks_logged_in_unique,' +
         'page_cta_clicks_by_site_logged_in_unique,' +
-        'page_cta_clicks_by_age_gender_logged_in_unique,' +
-        'page_cta_clicks_logged_in_by_country_unique,' +
-        'page_cta_clicks_logged_in_by_city_unique,' +
+        // 'page_cta_clicks_by_age_gender_logged_in_unique,' +
+        // 'page_cta_clicks_logged_in_by_country_unique,' +
+        // 'page_cta_clicks_logged_in_by_city_unique,' +
         'page_call_phone_clicks_logged_in_unique,' +
-        'page_call_phone_clicks_by_age_gender_logged_in_unique,' +
-        'page_call_phone_clicks_logged_in_by_country_unique,' +
-        'page_call_phone_clicks_logged_in_by_city_unique,' +
+        // 'page_call_phone_clicks_by_age_gender_logged_in_unique,' +
+        // 'page_call_phone_clicks_logged_in_by_country_unique,' +
+        // 'page_call_phone_clicks_logged_in_by_city_unique,' +
         'page_call_phone_clicks_by_site_logged_in_unique,' +
         'page_get_directions_clicks_logged_in_unique,' +
-        'page_get_directions_clicks_by_age_gender_logged_in_unique,' +
-        'page_get_directions_clicks_logged_in_by_country_unique,' +
-        'page_get_directions_clicks_logged_in_by_city_unique,' +
+        // 'page_get_directions_clicks_by_age_gender_logged_in_unique,' +
+        // 'page_get_directions_clicks_logged_in_by_country_unique,' +
+        // 'page_get_directions_clicks_logged_in_by_city_unique,' +
         'page_get_directions_clicks_by_site_logged_in_unique,' +
         'page_website_clicks_logged_in_unique,' +
-        'page_website_clicks_by_age_gender_logged_in_unique,' +
-        'page_website_clicks_logged_in_by_country_unique,' +
-        'page_website_clicks_logged_in_by_city_unique,' +
+        // 'page_website_clicks_by_age_gender_logged_in_unique,' +
+        // 'page_website_clicks_logged_in_by_country_unique,' +
+        // 'page_website_clicks_logged_in_by_city_unique,' +
         'page_website_clicks_by_site_logged_in_unique,' +
 //Page Engagement (18)
         'page_engaged_users,' +
@@ -58,9 +58,9 @@ function buildUrl(pageCount, page_response) {
         'page_places_checkin_total_unique,' +
         'page_places_checkin_mobile,' +
         'page_places_checkin_mobile_unique,' +
-        'page_places_checkins_by_age_gender,' +
-        'page_places_checkins_by_locale,' +
-        'page_places_checkins_by_country,' +
+        // 'page_places_checkins_by_age_gender,' +
+        // 'page_places_checkins_by_locale,' +
+        // 'page_places_checkins_by_country,' +
         'page_negative_feedback,' +
         'page_negative_feedback_unique,' +
         // 4 Types per Negative and 7 types per Positive
@@ -84,10 +84,10 @@ function buildUrl(pageCount, page_response) {
         'page_impressions_nonviral_unique,' +
         'page_impressions_by_story_type,' +
         'page_impressions_by_story_type_unique,' +
-        'page_impressions_by_city_unique,' +
-        'page_impressions_by_country_unique,' +
-        'page_impressions_by_locale_unique,' +
-        'page_impressions_by_age_gender_unique,' +
+        // 'page_impressions_by_city_unique,' +
+        // 'page_impressions_by_country_unique,' +
+        // 'page_impressions_by_locale_unique,' +
+        // 'page_impressions_by_age_gender_unique,' +
         'page_impressions_frequency_distribution,' +
         'page_impressions_viral_frequency_distribution,' +
 // Page Posts (12)
@@ -104,16 +104,16 @@ function buildUrl(pageCount, page_response) {
         'page_posts_impressions_nonviral_unique,' +
         'page_posts_impressions_frequency_distribution,' +
 // Page Post Engagement (10)
-        'post_engaged_users,' +
-        'post_negative_feedback,' +
-        'post_negative_feedback_unique,' +
-        'post_negative_feedback_by_type,' +
-        'post_negative_feedback_by_type_unique,' +
-        'post_engaged_fan,' +
-        'post_clicks,' +
-        'post_clicks_unique,' +
-        'post_clicks_by_type,' +
-        'post_clicks_by_type_unique,' +
+        // 'post_engaged_users,' +
+        // 'post_negative_feedback,' +
+        // 'post_negative_feedback_unique,' +
+        // 'post_negative_feedback_by_type,' +
+        // 'post_negative_feedback_by_type_unique,' +
+        // 'post_engaged_fan,' +
+        // 'post_clicks,' +
+        // 'post_clicks_unique,' +
+        // 'post_clicks_by_type,' +
+        // 'post_clicks_by_type_unique,' +
 // Page Reactions (7)
         'page_actions_post_reactions_like_total,' +
         'page_actions_post_reactions_love_total,' +
@@ -152,11 +152,11 @@ function buildUrl(pageCount, page_response) {
         'page_video_complete_views_30s_click_to_play,' +
         'page_video_complete_views_30s_unique,' +
         'page_video_complete_views_30s_repeat_views,' +
-        'post_video_complete_views_30s_autoplayed,' +
-        'post_video_complete_views_30s_clicked_to_play,' +
-        'post_video_complete_views_30s_organic,' +
-        'post_video_complete_views_30s_paid,' +
-        'post_video_complete_views_30s_unique,' +
+        // 'post_video_complete_views_30s_autoplayed,' +
+        // 'post_video_complete_views_30s_clicked_to_play,' +
+        // 'post_video_complete_views_30s_organic,' +
+        // 'post_video_complete_views_30s_paid,' +
+        // 'post_video_complete_views_30s_unique,' +
         'page_video_views_10s,' +
         'page_video_views_10s_paid,' +
         'page_video_views_10s_organic,' +
@@ -175,7 +175,7 @@ function buildUrl(pageCount, page_response) {
         'page_views_by_profile_tab_logged_in_unique,' +
         'page_views_by_internal_referer_logged_in_unique,' +
         'page_views_by_site_logged_in_unique,' +
-        'page_views_by_age_gender_logged_in_unique,' +
+        // 'page_views_by_age_gender_logged_in_unique,' +
         'page_views_by_referers_logged_in_unique,' +
 
 // Page Video Posts. 32 metrics
@@ -183,16 +183,17 @@ function buildUrl(pageCount, page_response) {
 // Stories (9)
         // 9 types for both
         //'page_content_activity_by_action_type_unique,' +
-        'page_content_activity_by_age_gender_unique,' +
-        'page_content_activity_by_city_unique,' +
-        'page_content_activity_by_country_unique,' +
-        'page_content_activity_by_locale_unique,' +
+        // 'page_content_activity_by_age_gender_unique,' +
+        // 'page_content_activity_by_city_unique,' +
+        // 'page_content_activity_by_country_unique,' +
+        // 'page_content_activity_by_locale_unique,' +
         'page_content_activity,' +
         // 'page_content_activity_by_action_type,' +
-        'post_activity,' +
-        'post_activity_unique,' +
-        'post_activity_by_action_type,' +
-        'post_activity_by_action_type_unique,' +
+        // 4 POST data
+        // 'post_activity,' +
+        // 'post_activity_unique,' +
+        // 'post_activity_by_action_type,' +
+        // 'post_activity_by_action_type_unique,' +
 
 // Video Ad Breaks. 6 metrics
         '?since=' + SINCE_DAY;
@@ -255,41 +256,41 @@ myConnector.getSchema = function(schemaCallback) {
             alias: "page_cta_clicks_by_site_logged_in_unique",
             description: "Number of people who are logged in to Facebook and clicked on the CTA button, broken down by www, mobile, api or other",
             dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_cta_clicks_by_age_gender_logged_in_unique",
-            alias: "page_cta_clicks_by_age_gender_logged_in_unique",
-            description: "Number of people who are logged in to Facebook and clicked the Page CTA button, broken down by age and gender group.",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_cta_clicks_logged_in_by_country_unique",
-            alias: "page_cta_clicks_logged_in_by_country_unique",
-            description: "Number of people who are logged in to Facebook and clicked the Page CTA button, broken down by country",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_cta_clicks_logged_in_by_city_unique",
-            alias: "page_cta_clicks_logged_in_by_city_unique",
-            description: "Number of people who are logged in to Facebook and clicked the Page CTA button, broken down by city",
-            dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "page_cta_clicks_by_age_gender_logged_in_unique",
+        //     alias: "page_cta_clicks_by_age_gender_logged_in_unique",
+        //     description: "Number of people who are logged in to Facebook and clicked the Page CTA button, broken down by age and gender group.",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "page_cta_clicks_logged_in_by_country_unique",
+        //     alias: "page_cta_clicks_logged_in_by_country_unique",
+        //     description: "Number of people who are logged in to Facebook and clicked the Page CTA button, broken down by country",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "page_cta_clicks_logged_in_by_city_unique",
+        //     alias: "page_cta_clicks_logged_in_by_city_unique",
+        //     description: "Number of people who are logged in to Facebook and clicked the Page CTA button, broken down by city",
+        //     dataType: tableau.dataTypeEnum.int
         }, {
             id: "page_call_phone_clicks_logged_in_unique",
             alias: "page_call_phone_clicks_logged_in_unique",
             description: "Number of people who logged in to Facebook and clicked the Call Now button",
             dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_call_phone_clicks_by_age_gender_logged_in_unique",
-            alias: "page_call_phone_clicks_by_age_gender_logged_in_unique",
-            description: "Number of people who logged in to Facebook and clicked the Call Now button, broken down by age and gender group",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_call_phone_clicks_logged_in_by_country_unique",
-            alias: "page_call_phone_clicks_logged_in_by_country_unique",
-            description: "Number of people who logged in to Facebook and clicked the Call Now button, broken down by countries",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_call_phone_clicks_logged_in_by_city_unique",
-            alias: "page_call_phone_clicks_logged_in_by_city_unique",
-            description: "Number of people who logged in to Facebook and clicked the Call Now button, broken down by city",
-            dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "page_call_phone_clicks_by_age_gender_logged_in_unique",
+        //     alias: "page_call_phone_clicks_by_age_gender_logged_in_unique",
+        //     description: "Number of people who logged in to Facebook and clicked the Call Now button, broken down by age and gender group",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "page_call_phone_clicks_logged_in_by_country_unique",
+        //     alias: "page_call_phone_clicks_logged_in_by_country_unique",
+        //     description: "Number of people who logged in to Facebook and clicked the Call Now button, broken down by countries",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "page_call_phone_clicks_logged_in_by_city_unique",
+        //     alias: "page_call_phone_clicks_logged_in_by_city_unique",
+        //     description: "Number of people who logged in to Facebook and clicked the Call Now button, broken down by city",
+        //     dataType: tableau.dataTypeEnum.int
         }, {
             id: "page_call_phone_clicks_by_site_logged_in_unique",
             alias: "page_call_phone_clicks_by_site_logged_in_unique",
@@ -300,21 +301,21 @@ myConnector.getSchema = function(schemaCallback) {
             alias: "page_get_directions_clicks_logged_in_unique",
             description: "Number of people who logged in to Facebook and clicked the Get Directions button",
             dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_get_directions_clicks_by_age_gender_logged_in_unique",
-            alias: "page_get_directions_clicks_by_age_gender_logged_in_unique",
-            description: "Number of people who logged in to Facebook and clicked the Get Directions button, broken down by age and gender group",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_get_directions_clicks_logged_in_by_country_unique",
-            alias: "page_get_directions_clicks_logged_in_by_country_unique",
-            description: "Number of people who logged in to Facebook and clicked the Get Directions button, broken down by country",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_get_directions_clicks_logged_in_by_city_unique",
-            alias: "page_get_directions_clicks_logged_in_by_city_unique",
-            description: "Number of people who logged in to Facebook and clicked the Get Directions button, broken down by city",
-            dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "page_get_directions_clicks_by_age_gender_logged_in_unique",
+        //     alias: "page_get_directions_clicks_by_age_gender_logged_in_unique",
+        //     description: "Number of people who logged in to Facebook and clicked the Get Directions button, broken down by age and gender group",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "page_get_directions_clicks_logged_in_by_country_unique",
+        //     alias: "page_get_directions_clicks_logged_in_by_country_unique",
+        //     description: "Number of people who logged in to Facebook and clicked the Get Directions button, broken down by country",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "page_get_directions_clicks_logged_in_by_city_unique",
+        //     alias: "page_get_directions_clicks_logged_in_by_city_unique",
+        //     description: "Number of people who logged in to Facebook and clicked the Get Directions button, broken down by city",
+        //     dataType: tableau.dataTypeEnum.int
         }, {
             id: "page_get_directions_clicks_by_site_logged_in_unique",
             alias: "page_get_directions_clicks_by_site_logged_in_unique",
@@ -325,21 +326,21 @@ myConnector.getSchema = function(schemaCallback) {
             alias: "page_website_clicks_logged_in_unique",
             description: "Number of people who logged in to Facebook and clicked the goto website CTA button",
             dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_website_clicks_by_age_gender_logged_in_unique",
-            alias: "page_website_clicks_by_age_gender_logged_in_unique",
-            description: "Number of people who logged in to Facebook and clicked the goto website CTA button, broken down by age and gender group",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_website_clicks_logged_in_by_country_unique",
-            alias: "page_website_clicks_logged_in_by_country_unique",
-            description: "Number of people who logged in to Facebook and clicked the goto website CTA button, broken down by country",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_website_clicks_logged_in_by_city_unique",
-            alias: "page_website_clicks_logged_in_by_city_unique",
-            description: "Number of people who logged in to Facebook and clicked the goto website CTA button, broken down by city",
-            dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "page_website_clicks_by_age_gender_logged_in_unique",
+        //     alias: "page_website_clicks_by_age_gender_logged_in_unique",
+        //     description: "Number of people who logged in to Facebook and clicked the goto website CTA button, broken down by age and gender group",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "page_website_clicks_logged_in_by_country_unique",
+        //     alias: "page_website_clicks_logged_in_by_country_unique",
+        //     description: "Number of people who logged in to Facebook and clicked the goto website CTA button, broken down by country",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "page_website_clicks_logged_in_by_city_unique",
+        //     alias: "page_website_clicks_logged_in_by_city_unique",
+        //     description: "Number of people who logged in to Facebook and clicked the goto website CTA button, broken down by city",
+        //     dataType: tableau.dataTypeEnum.int
         }, {
             id: "page_website_clicks_by_site_logged_in_unique",
             alias: "page_website_clicks_by_site_logged_in_unique",
@@ -398,21 +399,21 @@ myConnector.getSchema = function(schemaCallback) {
             alias: "Page Places Checkin Mobile Unique",
             description: "The number of people who checked into a place using mobile phones",
             dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_places_checkins_by_age_gender",
-            alias: "page_places_checkins_by_age_gender",
-            description: "gender and age of people who checked in at your Place",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_places_checkins_by_locale",
-            alias: "page_places_checkins_by_locale",
-            description: "top locales of people who checked into your Place",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_places_checkins_by_country",
-            alias: "page_places_checkins_by_country",
-            description: "top countries of people who checked into your Place",
-            dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "page_places_checkins_by_age_gender",
+        //     alias: "page_places_checkins_by_age_gender",
+        //     description: "gender and age of people who checked in at your Place",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "page_places_checkins_by_locale",
+        //     alias: "page_places_checkins_by_locale",
+        //     description: "top locales of people who checked into your Place",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "page_places_checkins_by_country",
+        //     alias: "page_places_checkins_by_country",
+        //     description: "top countries of people who checked into your Place",
+        //     dataType: tableau.dataTypeEnum.int
         }, {
             id: "page_negative_feedback",
             alias: "Page Negative Feedback",
@@ -520,26 +521,26 @@ myConnector.getSchema = function(schemaCallback) {
             alias: "page_impressions_by_story_type_unique",
             description: "The number of people who saw posts published by a friend about your Page by type",
             dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_impressions_by_city_unique",
-            alias: "page_impressions_by_city_unique",
-            description: "The number of people who have seen any content associated with your Page by city",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_impressions_by_country_unique",
-            alias: "page_impressions_by_country_unique",
-            description: "The number of people who have seen any content associated with your Page by country",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_impressions_by_locale_unique",
-            alias: "page_impressions_by_locale_unique",
-            description: "The number of people who have seen any content associated with your Page by user selected language",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_impressions_by_age_gender_unique",
-            alias: "page_impressions_by_age_gender_unique",
-            description: "The number of people who saw any content by your Page or about your Page, grouped by age and gender. This number is an estimate",
-            dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "page_impressions_by_city_unique",
+        //     alias: "page_impressions_by_city_unique",
+        //     description: "The number of people who have seen any content associated with your Page by city",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "page_impressions_by_country_unique",
+        //     alias: "page_impressions_by_country_unique",
+        //     description: "The number of people who have seen any content associated with your Page by country",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "page_impressions_by_locale_unique",
+        //     alias: "page_impressions_by_locale_unique",
+        //     description: "The number of people who have seen any content associated with your Page by user selected language",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "page_impressions_by_age_gender_unique",
+        //     alias: "page_impressions_by_age_gender_unique",
+        //     description: "The number of people who saw any content by your Page or about your Page, grouped by age and gender. This number is an estimate",
+        //     dataType: tableau.dataTypeEnum.int
         }, {
             id: "page_impressions_frequency_distribution",
             alias: "page_impressions_frequency_distribution",
@@ -614,59 +615,59 @@ myConnector.getSchema = function(schemaCallback) {
             dataType: tableau.dataTypeEnum.int
         },
 // Page Post  (10)
-           {
-            id: "post_engaged_users",
-            alias: "post_engaged_users",
-            description: "The number of people who clicked anywhere in your posts",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "post_negative_feedback",
-            alias: "post_negative_feedback",
-            description: "The number of times people took a negative action in your post (e.g. hid it)",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "post_negative_feedback_unique",
-            alias: "post_negative_feedback_unique",
-            description: "The number of people who took a negative action in your post (e.g., hid it)",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "post_negative_feedback_by_type",
-            alias: "post_negative_feedback_by_type",
-            description: "The number of times people took a negative action in your post broken down by type",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "post_negative_feedback_by_type_unique",
-            alias: "post_negative_feedback_by_type_unique",
-            description: "The number of people who took a negative action in your post broken down by type",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "post_engaged_fan",
-            alias: "post_engaged_fan",
-            description: "People who have liked your Page and engaged with your post",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "post_clicks",
-            alias: "post_clicks",
-            description: "The number of times people clicked on anywhere in your posts without generating a story",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "post_clicks_unique",
-            alias: "post_clicks_unique",
-            description: "The number of people who clicked anywhere in your post without generating a story",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "post_clicks_by_type",
-            alias: "post_clicks_by_type",
-            description: "The number of times people clicked on anywhere in your posts without generating a story, by consumption type",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "post_clicks_by_type_unique",
-            alias: "post_clicks_by_type_unique",
-            description: "The number of people who clicked anywhere in your post without generating a story, by consumption type",
-            dataType: tableau.dataTypeEnum.int
-        },
+        //    {
+        //     id: "post_engaged_users",
+        //     alias: "post_engaged_users",
+        //     description: "The number of people who clicked anywhere in your posts",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "post_negative_feedback",
+        //     alias: "post_negative_feedback",
+        //     description: "The number of times people took a negative action in your post (e.g. hid it)",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "post_negative_feedback_unique",
+        //     alias: "post_negative_feedback_unique",
+        //     description: "The number of people who took a negative action in your post (e.g., hid it)",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "post_negative_feedback_by_type",
+        //     alias: "post_negative_feedback_by_type",
+        //     description: "The number of times people took a negative action in your post broken down by type",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "post_negative_feedback_by_type_unique",
+        //     alias: "post_negative_feedback_by_type_unique",
+        //     description: "The number of people who took a negative action in your post broken down by type",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "post_engaged_fan",
+        //     alias: "post_engaged_fan",
+        //     description: "People who have liked your Page and engaged with your post",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "post_clicks",
+        //     alias: "post_clicks",
+        //     description: "The number of times people clicked on anywhere in your posts without generating a story",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "post_clicks_unique",
+        //     alias: "post_clicks_unique",
+        //     description: "The number of people who clicked anywhere in your post without generating a story",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "post_clicks_by_type",
+        //     alias: "post_clicks_by_type",
+        //     description: "The number of times people clicked on anywhere in your posts without generating a story, by consumption type",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "post_clicks_by_type_unique",
+        //     alias: "post_clicks_by_type_unique",
+        //     description: "The number of people who clicked anywhere in your post without generating a story, by consumption type",
+        //     dataType: tableau.dataTypeEnum.int
+        // },
 
-        // (7)
+        // Page Reactions (7)
 
         {
             id: "page_actions_reactions_like_total",
@@ -834,31 +835,31 @@ myConnector.getSchema = function(schemaCallback) {
             alias: "Page Video Complete Views 30s Repeat Views",
             description: "Total number of times that people replay a page's videos to the end, or for more than 30 seconds",
             dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "post_video_complete_views_30s_autoplayed",
-            alias: "post_video_complete_views_30s_autoplayed",
-            description: "The number of times your videos automatically played for at least 30 seconds, or for nearly their total length if they're shorter than 30 seconds. During a single instance of a video playing, we'll exclude any time spent replaying the video. Returns 0 for reshared videos.",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "post_video_complete_views_30s_clicked_to_play",
-            alias: "post_video_complete_views_30s_clicked_to_play",
-            description: "The number of times your videos played for at least 30 seconds, or for nearly their total length if they're shorter than 30 seconds, after people clicked play. During a single instance of a video playing, we'll exclude any time spent replaying the video. Returns 0 for reshared videos.",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "post_video_complete_views_30s_organic",
-            alias: "post_video_complete_views_30s_organic",
-            description: "The number of times your videos played for at least 30 seconds, or for nearly their total length if they're shorter than 30 seconds, by organic reach. During a single instance of a video playing, we'll exclude any time spent replaying the video. Returns 0 for reshared videos.",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "post_video_complete_views_30s_paid",
-            alias: "post_video_complete_views_30s_paid",
-            description: "The number of times your promoted videos played for at least 30 seconds, or for nearly their total length if they're shorter than 30 seconds. For each impression of a video, we'll count video views separately and exclude any time spent replaying the video. Returns 0 for reshared videos.",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "post_video_complete_views_30s_unique",
-            alias: "post_video_complete_views_30s_unique",
-            description: "The number of people who viewed your videos for at least 30 seconds, or for nearly their total length if they're shorter than 30 seconds. During a single instance of a video playing, we'll exclude any time spent replaying the video.",
-            dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "post_video_complete_views_30s_autoplayed",
+        //     alias: "post_video_complete_views_30s_autoplayed",
+        //     description: "The number of times your videos automatically played for at least 30 seconds, or for nearly their total length if they're shorter than 30 seconds. During a single instance of a video playing, we'll exclude any time spent replaying the video. Returns 0 for reshared videos.",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "post_video_complete_views_30s_clicked_to_play",
+        //     alias: "post_video_complete_views_30s_clicked_to_play",
+        //     description: "The number of times your videos played for at least 30 seconds, or for nearly their total length if they're shorter than 30 seconds, after people clicked play. During a single instance of a video playing, we'll exclude any time spent replaying the video. Returns 0 for reshared videos.",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "post_video_complete_views_30s_organic",
+        //     alias: "post_video_complete_views_30s_organic",
+        //     description: "The number of times your videos played for at least 30 seconds, or for nearly their total length if they're shorter than 30 seconds, by organic reach. During a single instance of a video playing, we'll exclude any time spent replaying the video. Returns 0 for reshared videos.",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "post_video_complete_views_30s_paid",
+        //     alias: "post_video_complete_views_30s_paid",
+        //     description: "The number of times your promoted videos played for at least 30 seconds, or for nearly their total length if they're shorter than 30 seconds. For each impression of a video, we'll count video views separately and exclude any time spent replaying the video. Returns 0 for reshared videos.",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "post_video_complete_views_30s_unique",
+        //     alias: "post_video_complete_views_30s_unique",
+        //     description: "The number of people who viewed your videos for at least 30 seconds, or for nearly their total length if they're shorter than 30 seconds. During a single instance of a video playing, we'll exclude any time spent replaying the video.",
+        //     dataType: tableau.dataTypeEnum.int
         }, {
             id: "page_video_views_10s",
             alias: "page_video_views_10s",
@@ -947,11 +948,11 @@ myConnector.getSchema = function(schemaCallback) {
             description: "The number of people logged in to Facebook who have viewed your Page profile, broken down by the type of device.",
             dataType: tableau.dataTypeEnum.int
         }, {
-            id: "page_views_by_age_gender_logged_in_unique",
-            alias: "page_views_by_age_gender_logged_in_unique",
-            description: "The number of people logged in to Facebook who have viewed your Page profile, broken down by gender group.",
-            dataType: tableau.dataTypeEnum.int
-        }, {
+        //     id: "page_views_by_age_gender_logged_in_unique",
+        //     alias: "page_views_by_age_gender_logged_in_unique",
+        //     description: "The number of people logged in to Facebook who have viewed your Page profile, broken down by gender group.",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
             id: "page_views_by_referers_logged_in_unique",
             alias: "page_views_by_referers_logged_in_unique",
             description: "Logged-in page visit counts (unique users) by referral source.",
@@ -960,50 +961,50 @@ myConnector.getSchema = function(schemaCallback) {
 
 // Stories (9)
            {
-            id: "page_content_activity_by_age_gender_unique",
-            alias: "page_content_activity_by_age_gender_unique",
-            description: "The number of People Talking About the Page by user age and gender. This number is an estimate.",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_content_activity_by_city_unique",
-            alias: "page_content_activity_by_city_unique",
-            description: "The number of People Talking About the Page by user city.",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_content_activity_by_country_unique",
-            alias: "page_content_activity_by_country_unique",
-            description: "The number of people, aggregated per country, that are talking about your Page. Only the 45 countries with the most people talking about your page are included.",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "page_content_activity_by_locale_unique",
-            alias: "page_content_activity_by_locale_unique",
-            description: "The number of People Talking About the Page by user language.",
-            dataType: tableau.dataTypeEnum.int
-        }, {
+        //     id: "page_content_activity_by_age_gender_unique",
+        //     alias: "page_content_activity_by_age_gender_unique",
+        //     description: "The number of People Talking About the Page by user age and gender. This number is an estimate.",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "page_content_activity_by_city_unique",
+        //     alias: "page_content_activity_by_city_unique",
+        //     description: "The number of People Talking About the Page by user city.",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "page_content_activity_by_country_unique",
+        //     alias: "page_content_activity_by_country_unique",
+        //     description: "The number of people, aggregated per country, that are talking about your Page. Only the 45 countries with the most people talking about your page are included.",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "page_content_activity_by_locale_unique",
+        //     alias: "page_content_activity_by_locale_unique",
+        //     description: "The number of People Talking About the Page by user language.",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
             id: "page_content_activity",
             alias: "page_content_activity",
             description: "The number of stories created about your Page (Stories).",
             dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "post_activity",
-            alias: "post_activity",
-            description: "The number of stories generated about your Page post ('Stories').",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "post_activity_unique",
-            alias: "post_activity_unique",
-            description: "The number of people who created a story about your Page post ('People Talking About This' / PTAT).",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "post_activity_by_action_type",
-            alias: "post_activity_by_action_type",
-            description: "The number of stories created about your Page post, by action type.",
-            dataType: tableau.dataTypeEnum.int
-        }, {
-            id: "post_activity_by_action_type_unique",
-            alias: "post_activity_by_action_type_unique",
-            description: "The number of people who created a story about your Page post, by action type.",
-            dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "post_activity",
+        //     alias: "post_activity",
+        //     description: "The number of stories generated about your Page post ('Stories').",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "post_activity_unique",
+        //     alias: "post_activity_unique",
+        //     description: "The number of people who created a story about your Page post ('People Talking About This' / PTAT).",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "post_activity_by_action_type",
+        //     alias: "post_activity_by_action_type",
+        //     description: "The number of stories created about your Page post, by action type.",
+        //     dataType: tableau.dataTypeEnum.int
+        // }, {
+        //     id: "post_activity_by_action_type_unique",
+        //     alias: "post_activity_by_action_type_unique",
+        //     description: "The number of people who created a story about your Page post, by action type.",
+        //     dataType: tableau.dataTypeEnum.int
         }
 
 // Video Ad Breaks
