@@ -669,7 +669,7 @@ myConnector.getSchema = function(schemaCallback) {
 
         // Page Reactions (7)
 
-        {
+           {
             id: "page_actions_reactions_like_total",
             alias: "Page Actions Post Reactions Like Total",
             description: "Daily total post \"like\" reactions of a page",
@@ -707,7 +707,7 @@ myConnector.getSchema = function(schemaCallback) {
         },
 
 // Page User Demographics (10)
-        {
+           {
             id: "page_fans",
             alias: "Page Fans",
             description: "The total number of people who have liked your Page.",
